@@ -13,8 +13,9 @@
     
   </div>
   <p class="content">
-    <%= @post.content %>
+   Content <%= @post.content %>
   </p>
+   Cost: <%= @post.cost %>
   <p class="content">
     <% if @post.categories.present? %>
       <% @post.categories.each do |category| %>

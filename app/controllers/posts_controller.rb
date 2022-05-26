@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   
   
   def post_params
-    params.require(:post).permit(:title, :content, :image, category_ids: [])
+    params.require(:post).permit(:title, :content, :image, :cost, category_ids: [])
   end
   def is_admin?
     redirect_to(root_path) if current_user.user?

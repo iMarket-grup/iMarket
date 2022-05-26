@@ -15,14 +15,16 @@
           <div class="baslikIcerik">
             <p class="baslikIcerikAlt"><%= truncate(post.title, length: 40)%></p>
           </div>
-
+          Fiyat: <%= post.cost %>
       </div>
     
     <% end %>
         <div class="footerIcerik">
           <%=link_to "Sepete ekle", add_cart_posts_path(post), style:"color: #6d37da" %>
-
+          
+         
         </div>
+
   </div>
   
 <% end %>

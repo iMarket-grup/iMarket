@@ -1,6 +1,7 @@
 <%= form_for @post do |f| %>
   Title: <%= f.text_field :title, required: true %><br>
   Content: <%= f.text_area :content, required: true %><br>
+  Cost: <%= f.text_area :cost, required: true %><br>
   Categories: <%= f.select(:category_ids, Category.all.collect {|category| [category.name, category.id]} ,{ :prompt => "En Az Birini Seçiniz..."}, { :multiple => true }) %><br>
   resim ekle: <%=f.file_field :image, required: true %>
   <%= f.submit 'Gönder', class:'button'%>
