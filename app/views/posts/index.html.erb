@@ -65,7 +65,7 @@
 									<li>
 										<button type="button" class="cart_btn">
 											<i class="fal fa-shopping-cart"></i>
-											<span class="btn_badge">2</span>
+											<span class="btn_badge">6</span>
 										</button>
 									</li>
 									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -224,8 +224,13 @@
 								</li>
 								<li>
 									<button type="button" class="cart_btn bg-primary">
-										<i class="fal fa-shopping-cart"></i>
-										<span class="btn_badge">3</span>
+				  <% if current_user.present? %>
+                  <%= link_to "sepet",  cart_index_path%>
+				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+                  <% else %>
+                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+                  <% end %>
+							
 									</button>
 								</li>
 							</ul>
@@ -603,7 +608,7 @@
 												<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
 											</ul>
 											<span class="item_price"><strong><%= post.cost %> TL</strong> <del>345,90 TL</del></span>
-											<p><%= link_to "Sepete Ekle", add_cart_posts_path(post), class:"" %></p>
+											<p><%= link_to "Sepete Ekle", add_cart_posts_path(post)%></p>
 										</div>
 									</div>
 								<% end %>
@@ -746,3 +751,19 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</body>
 </html>
+
+<div style="display: flex;">
+    <div>
+        <%= image_tag 'home.png' %>
+    </div>
+    <div style="margin: auto;">
+      <a href="#" style=""><%= current_user.email if user_signed_in? %><br>
+            <% if user_signed_in?%>
+                <%= link_to 'posts', posts_path %><br>
+                <%= link_to 'kategoriler', categories_path%><br>
+                <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+            <%else%>
+                <%= link_to 'Giriş Yap',new_user_session_path, style:"background-color: #6d37da; padding: 20px; border-radius: 25px; color: white; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: bold;" %>
+            <%end%>
+        </a>
+    </div>

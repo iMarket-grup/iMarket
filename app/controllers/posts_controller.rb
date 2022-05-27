@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:success] = "Post Başarıyla Oluşturuldu"
 
-      redirect_to post_path(@post)
+      redirect_to admins_path
     else
       flash[:error] = @post.errors.full_messages.join(", ")
       render :new
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
       current_user.current_cart.posts << @post
 
-    redirect_to @post, notice: 'Ürün Sepete Eklendi'
+    redirect_to posts_path, notice: 'Ürün Sepete Eklendi'
   end
   
   

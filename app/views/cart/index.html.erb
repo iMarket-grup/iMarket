@@ -64,8 +64,13 @@
 									</li>
 									<li>
 										<button type="button" class="cart_btn">
-											<i class="fal fa-shopping-cart"></i>
-											<span class="btn_badge">2</span>
+				  <% if current_user.present? %>
+                  <%= link_to "sepet",  cart_index_path%>
+				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+                  <% else %>
+                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+                  <% end %>
+							
 										</button>
 									</li>
 									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -224,8 +229,14 @@
 								</li>
 								<li>
 									<button type="button" class="cart_btn bg-primary">
-										<i class="fal fa-shopping-cart"></i>
-										<span class="btn_badge">3</span>
+										
+										
+				  <% if current_user.present? %>
+                  <%= link_to "sepet",  cart_index_path%>
+				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+                  <% else %>
+                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+                  <% end %>
 									</button>
 								</li>
 							</ul>
@@ -448,7 +459,7 @@
 											</div>
 											<div class="item_content">
 												<%= truncate(cart.title, length: 40, class:"item_title")%>
-												<span class="item_type">Kategori Adı</span>
+												<span class="item_type"><%= @categories.find(cart.category_ids).last.name%></span>
 											</div>
 											<button type="button" class="remove_btn">
 												<i class="fal fa-times"></i>
@@ -456,7 +467,7 @@
 										</div>
 									</td>
 									<td>
-										<span class="price_text">69.00 TL</span>
+										<span class="price_text"><%= cart.cost%> TL</span>
 									</td>
 									<td>
 										<div class="quantity_input">
@@ -467,7 +478,7 @@
 											</form>
 										</div>
 									</td>
-									<td><span class="total_price">138.00 TL</span></td>
+									<td><span class="total_price"><%= @cart_sum %> TL</span></td>
 								</tr>
                 <% end %>
 
@@ -500,8 +511,8 @@
 							<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
 								<h3 class="table_title text-center" data-bg-color="#ededed">Sepet Tutarı</h3>
 								<ul class="ul_li_block clearfix">
-									<li><span>Alt Toplam</span> <span>197.99 TL</span></li>
-									<li><span>Toplam</span> <span>197.99 TL</span></li>
+									<li><span>Alt Toplam</span> <span><%= @cart_sum %></span></li>
+									<li><span>Toplam</span> <span><%= @cart_sum %></span></li>
 								</ul>
 								<a href="shop_checkout.html" class="custom_btn bg_success">Ödemeye Geç</a>
 							</div>
