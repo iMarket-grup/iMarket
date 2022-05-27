@@ -135,17 +135,64 @@ s
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-
+<%= form_for @post do |f| %>
       <!-- Main content -->
-      <section class="content">
+      <section class="content justify-content-center d-flex">
 
-        <%= form_for @post do |f| %>
-          Title: <%= f.text_field :title, required: true %><br>
-          Content: <%= f.text_area :content, required: true %><br>
-          Cost: <%= f.text_area :cost, required: true %><br>
-          Categories: <%= f.select(:category_ids, Category.all.collect {|category| [category.name, category.id]} ,{ :prompt => "En Az Birini Seçiniz..."}, { :multiple => true }) %><br>
-          resim ekle: <%=f.file_field :image, required: true %>
-          <%= f.submit 'Gönder', class:'button'%>
+      <div class="card card-info w-50">
+              <div class="card-header">
+                <h3 class="card-title">Ürün Ekle</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <%= f.label "Ürün Adı"%>
+                        <%= f.text_field :title, required: true, class:"form-control", placeholder: "Ürün Adı Giriniz" %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.label "Fiyat"%>
+                        <%= f.text_field :cost, required: true, class:"form-control", placeholder:"Fiyat Belirtiniz" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.label "Ürün Açıklaması"%>
+                        <%= f.text_area :content, required: true, rows:'3', placeholder:"Açıklama Giriniz", class:"form-control" %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- Select multiple-->
+                      <div class="form-group">
+                        <%= f.label "Kategori Seçiniz"%>
+                        <%= f.select(:category_ids, Category.all.collect {|category| [category.name, category.id]} ,{ :prompt => "En Az Birini Seçiniz..."}, { :multiple => true, :class => 'form-control' }) %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="custom-file">
+                        <%=f.file_field :image, required: true, class:"custom-file-input"%>
+                        <%= f.label :customFile, "Resim Ekle", class:"custom-file-label"%>
+                      </div>
+                    </div>
+                  </div>
+                <!-- /.card-body -->
+                  <%= f.submit 'Ekle', class:'btn btn-info float-right p-2'%>
+
+                </div>
+                <!-- /.card-footer -->  
+              </form>
+            </div>
+          
         <% end %>
         
       </section>
