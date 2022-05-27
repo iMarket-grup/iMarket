@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'cart/index'
   root 'posts#index'
   
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :rates
+  resources :comments
+  resources :occupants
 
   
  

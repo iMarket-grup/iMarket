@@ -1,5 +1,4 @@
-
-  <div class="">
+    <div class="">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
@@ -99,12 +98,12 @@
             </li>
             <li class="nav-item">
               
-                  <%=link_to "Yorumlar",   comments_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
+                 <%=link_to "Yorumlar",   comments_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
                   
             </li>
             <li class="nav-item">
               
-              <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
+                  <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
                   
             </li> 
 s
@@ -138,8 +137,23 @@ s
 
       <!-- Main content -->
       <section class="content">
+
+        <div class="center">
+          <% @occupants.each do |occupant|%>
+            <div>    
+              <tr> 
+               Email : <td><%=occupant.email%></td>
+                
+              </tr>
+              <tr> 
+                Kayıt Tarihi : <td><%=occupant.created_at%></td>
+                
+              </tr>
+            </div>
+          <%end%>
+        </div>
+
         
-        <!--/. container-fluid -->
       </section>
       <!-- /.content -->
     </div>
