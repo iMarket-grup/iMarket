@@ -53,22 +53,12 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="dist/img/favlogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <span class="brand-text font-weight-light">iThink</span>
+        <p>Admin Paneli</p>
       </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="dist/img/logo.jpg" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">Admin Test</a>
-          </div>
-        </div>
 
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -99,12 +89,12 @@
             </li>
             <li class="nav-item">
               
-                  <%=link_to "Yorumlar",   comments_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
+                  <%=link_to "Yorumlar",   new_category_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
                   
             </li>
             <li class="nav-item">
               
-              <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
+                 <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
                   
             </li> 
 s
@@ -138,8 +128,19 @@ s
 
       <!-- Main content -->
       <section class="content">
+
+    <% @comments.each do |comment|%>
+
+        <div>
+            <tr> 
+                İsim: <td><%=comment.name%></td>
+                Email: <td><%=comment.email%></td>
+                Yorum: <td><%=comment.content%></td>
+            <tr>
+        </div>
+
+    <%end%>
         
-        <!--/. container-fluid -->
       </section>
       <!-- /.content -->
     </div>
