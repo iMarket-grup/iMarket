@@ -2696,7 +2696,7 @@ button {
 }
 .classic_ecommerce_header .header_bottom {
   display: flex;
-  min-height: 100px;
+  min-height: 50px;
   align-items: center;
 }
 .classic_ecommerce_header.stuck .header_bottom {
