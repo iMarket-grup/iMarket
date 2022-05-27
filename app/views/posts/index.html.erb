@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 	<head>
 
@@ -9,15 +9,15 @@
 
 		<title>Anasayfa | iMarket</title>
 		<link rel="shortcut icon" href="assets/images/logo/favourite_icon_01.png">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/nice-select.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/slick.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/fontawesome.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/animate.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/nice-select.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/slick.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/slick-theme.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/magnific-popup.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="app/app/assets/stylesheet/style.css">
 
 	</head>
 
@@ -25,13 +25,6 @@
 	<body class="home_classic_ecommerce">
     <div class="content">
       <div class="ortala">
-		<div id="thetop"></div>
-		<div class="backtotop" data-bg-color="#000000">
-			<a href="#" class="scroll">
-				<i class="far fa-arrow-up"></i>
-			</a>
-		</div>
-
 		<!-- header_section - start
 		================================================== -->
 		<header class="header_section classic_ecommerce_header sticky_header clearfix">
@@ -60,7 +53,7 @@
 						<div class="col-lg-3">
 							<div class="brand_logo">
 								<a class="brand_link" href="#!">
-									<%= image_tag "logo_01_1x.png", class:"2x" %>
+									<%= image_tag "logo.png", class:"1x", style:"max-width:200px;" %>
 								</a>
 
 								<ul class="mh_action_btns ul_li clearfix">
@@ -72,7 +65,7 @@
 									<li>
 										<button type="button" class="cart_btn">
 											<i class="fal fa-shopping-cart"></i>
-											<span class="btn_badge">2</span>
+											<span class="btn_badge">6</span>
 										</button>
 									</li>
 									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -230,9 +223,14 @@
 									</div>
 								</li>
 								<li>
-									<button type="button" class="cart_btn">
-										<i class="fal fa-shopping-cart"></i>
-										<span class="btn_badge">3</span>
+									<button type="button" class="cart_btn bg-primary">
+				  <% if current_user.present? %>
+                  <%= link_to "sepet",  cart_index_path%>
+				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+                  <% else %>
+                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+                  <% end %>
+							
 									</button>
 								</li>
 							</ul>
@@ -577,7 +575,6 @@
 								<li><button data-filter=".dresses">Ev Aletleri</button></li>
 								<li><button data-filter=".tops">Tıraş Takımı</button></li>
 								<li><button data-filter=".bodysuits">Bilgisayar</button></li>
-								<li><span class="filter_sidebar_btn" data-bg-color="#f9f9f9"><i class="far fa-bars"></i> FILTER</span></li>
 							</ul>
 						</div>
 					</div>
@@ -611,7 +608,7 @@
 												<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
 											</ul>
 											<span class="item_price"><strong><%= post.cost %> TL</strong> <del>345,90 TL</del></span>
-											<p><%= link_to "Sepete Ekle", add_cart_posts_path(post), class:"" %></p>
+											<p><%= link_to "Sepete Ekle", add_cart_posts_path(post)%></p>
 										</div>
 									</div>
 								<% end %>
@@ -750,6 +747,23 @@
 			</div>
 		</div>
 	      </div>
-    </div>	
+    </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</body>
 </html>
+
+<div style="display: flex;">
+    <div>
+        <%= image_tag 'home.png' %>
+    </div>
+    <div style="margin: auto;">
+      <a href="#" style=""><%= current_user.email if user_signed_in? %><br>
+            <% if user_signed_in?%>
+                <%= link_to 'posts', posts_path %><br>
+                <%= link_to 'kategoriler', categories_path%><br>
+                <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+            <%else%>
+                <%= link_to 'Giriş Yap',new_user_session_path, style:"background-color: #6d37da; padding: 20px; border-radius: 25px; color: white; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: bold;" %>
+            <%end%>
+        </a>
+    </div>
