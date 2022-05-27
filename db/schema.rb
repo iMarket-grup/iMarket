@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2022_05_26_161844) do
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
     t.integer "cost"
   end
 

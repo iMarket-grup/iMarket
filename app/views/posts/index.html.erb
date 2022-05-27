@@ -1,64 +1,351 @@
 
+
 <% @posts.each do |post| %>
-  
 
-    <div class="post">
-      <%= link_to post_path(post), class: 'kartIcerik' do %>
-      <div class="govdeIcerik">
-        <div class="gorselIcerik">
-          <%if post.image.attached?%>
-            <%=image_tag post.image, style:"width:100%; height:350px; object-fit:cover; border-top-left-radius: 20px; border-top-right-radius: 20px;"%>
-          <%else%>
-            Fotoğraf Bulunamadı.
-          <%end%>
-        </div>
-          <div class="baslikIcerik">
-            <p class="baslikIcerikAlt"><%= truncate(post.title, length: 40)%></p>
+    <!--  Eski  
+        <div class="post">
+          <%= link_to post_path(post), class: 'kartIcerik' do %>
+            <div class="govdeIcerik">
+              <div class="gorselIcerik">
+                <%if post.image.attached?%>
+                  <%=image_tag post.image, style:"width:100%; height:350px; object-fit:cover; border-top-left-radius: 20px; border-top-right-radius: 20px;"%>
+                <%else%>
+                  Fotoğraf Bulunamadı.
+                <%end%>
+              </div>
+                <div class="baslikIcerik">
+                  <p class="baslikIcerikAlt"><%= truncate(post.title, length: 40)%></p>
+                </div>
+                Fiyat: <%= post.cost %>
+            </div>
+        
+          <% end %>
+
+          <div class="footerIcerik">
+            <%=link_to "Sepete ekle", add_cart_posts_path(post), style:"color: #6d37da" %>
+            
+            
           </div>
-          Fiyat: <%= post.cost %>
-      </div>
-    
-    <% end %>
-        <div class="footerIcerik">
-          <%=link_to "Sepete ekle", add_cart_posts_path(post), style:"color: #6d37da" %>
-          
-         
         </div>
+    -->
 
-  </div>
-  
-<% end %>
+      <%= link_to post_path(post), class: 'element-item' do %>
+      <div class="ecommerce_product_grid">
+        <div class="tab-content">
+          <div id="ptab1_1" class="tab-pane fade active">
+            <div class="item_image">
+              <%if post.image.attached?%>
+                <%= image_tag post.image %>
+                <%else%>
+                  Fotoğraf Bulunamadı.
+              <%end%>
+            </div>
+          </div>
+          
+          <ul class="product_action_btns ul_li_center clearfix">
+            <li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i>
+            <%=link_to add_cart_posts_path(post) %></a></li>
+          </ul>
+        </div>
+        
+        <div class="item_content">
+          <h3 class="item_title">
+            <a href="#!"><%= truncate(post.title, length: 40)%></a>
+          </h3>
+          <span class="item_price"><strong><%= post.cost %> TL</strong> <del>345,90 TL</del></span>
+        </div>
+      </div>
+      <% end %>
 
-<!--
-<div class="paylas" style="position: fixed; bottom: 0; width: 100%; display: flex;">
-  <div class="linkler" style="justify-content: center;">
-    
-    <%= link_to "http://www.facebook.com/" do %>
-        <%= image_tag 'facebook.png' %>
-    <% end %> 
 
-    <%= link_to "http://www.twitter.com/" do %>
-        <%= image_tag 'twitter.png' %>
-    <% end %>
 
-    <%= link_to "https://www.instagram.com" do %>
-        <%= image_tag 'instagram.png' %>
-    <% end %>
+   <% end %>
 
-    <%= link_to "https://www.linkedin.com/" do %>
-        <%= image_tag 'linkedin.png' %>
-    <% end %>
+<!-- ############################################################################### -->
 
-  </div>
-</div>
--->
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+      <section class="product_section sec_ptb_100 clearfix">
+				<div class="container">
+					<div class="row mb_30 align-items-center justify-content-lg-between">
+						<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+							<div class="ecommerce_section_title">
+								<h2 class="title_text mb-0">Popüler Ürünler</h2>
+							</div>
+						</div>
+
+						<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+							<ul class="button-group filters-button-group ul_li_right clearfix">
+								<li><button class="active" data-filter="*">Tümü</button></li>
+								<li><button data-filter=".Telefon">Telefon</button></li>
+								<li><button data-filter=".TV">TV</button></li>
+								<li><button data-filter=".dresses">Ev Aletleri</button></li>
+								<li><button data-filter=".tops">Tıraş Takımı</button></li>
+								<li><button data-filter=".bodysuits">Bilgisayar</button></li>
+								<li><span class="filter_sidebar_btn" data-bg-color="#f9f9f9"><i class="far fa-bars"></i> FILTER</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="element-grid column4_element_grid mb_50">
+
+						<div class="element-item TV " data-category="TV">
+							<div class="ecommerce_product_grid">
+								<div class="tab-content">
+									<div id="ptab2_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_02.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab2_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_03.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab2_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_04.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 2</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab1_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab2_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab2_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="element-item dresses " data-category="dresses">
+							<div class="ecommerce_product_grid">
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#808080">Stokta Yok</li>
+								</ul>
+								<div class="tab-content">
+									<div id="ptab3_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_03.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab3_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_04.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab3_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_05.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 3</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab3_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab3_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab3_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="element-item tops " data-category="tops">
+							<div class="ecommerce_product_grid">
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#93be2b">Yeni</li>
+								</ul>
+								<div class="tab-content">
+									<div id="ptab4_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_04.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab4_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_05.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab4_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_06.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 4</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab4_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab4_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab4_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="element-item bodysuits " data-category="bodysuits">
+							<div class="ecommerce_product_grid">
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#93be2b">Yeni</li>
+								</ul>
+								<div class="tab-content">
+									<div id="ptab5_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_05.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab5_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_06.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab5_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_07.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 5</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab5_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab5_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab5_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="element-item Telefon " data-category="Telefon">
+							<div class="ecommerce_product_grid">
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#93be2b">Yeni</li>
+								</ul>
+								<div class="tab-content">
+									<div id="ptab6_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_06.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab6_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_07.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab6_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_08.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 6</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab6_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab6_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab6_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="element-item TV " data-category="TV">
+							<div class="ecommerce_product_grid">
+								<ul class="product_label ul_li clearfix">
+									<li data-bg-color="#93be2b">Yeni</li>
+								</ul>
+								<div class="tab-content">
+									<div id="ptab7_1" class="tab-pane fade active">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_07.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab7_2" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_08.png" alt="image_not_found">
+										</div>
+									</div>
+									<div id="ptab7_3" class="tab-pane fade">
+										<div class="item_image">
+											<img src="assets/images/shop/classic_ecommerce/img_09.png" alt="image_not_found">
+										</div>
+									</div>
+									<ul class="product_action_btns ul_li_center clearfix">
+										<li><a class="tooltips" data-placement="top" title="İstek Listesine Ekle" href="#!"><i class="fal fa-heart"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Sepete Ekle" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
+										<li><a class="tooltips" data-placement="top" title="Hızlı Bak" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									</ul>
+								</div>
+								<div class="item_content">
+									<h3 class="item_title">
+										<a href="#!">Ürün 7</a>
+									</h3>
+									<ul class="product_color ul_li nav clearfix">
+										<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab7_1"></a></li>
+										<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab7_2"></a></li>
+										<li><a class="pbg_gray" data-toggle="tab" href="#ptab7_3"></a></li>
+									</ul>
+									<span class="item_price"><strong>245,90 TL</strong> <del>345,90 TL</del></span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="load_more text-center clearfix">
+						<a class="custom_btn bg_gray text-uppercase" href="#!">Daha Fazla</a>
+					</div>
+				</div>
+			</section>
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
     function addDarkmodeWidget() {
       new Darkmode().showWidget();
     }
     window.addEventListener('load', addDarkmodeWidget);
-  </script> 
+</script> -->
   
 
            
