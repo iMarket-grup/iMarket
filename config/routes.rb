@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'cart/index'
-  root 'home#index'
+  root 'posts#index'
   
   devise_for :users
   resources :admins
