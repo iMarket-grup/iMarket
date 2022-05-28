@@ -448,7 +448,9 @@
 											</div>
 											<div class="item_content">
 												<%= truncate(cart.title, length: 40, class:"item_title")%>
+												<%if @categories.find(cart.category_ids).last.present?%>
 												<span class="item_type"><%= @categories.find(cart.category_ids).last.name%></span>
+												<%end%>
 											</div>
 											<button type="button" class="remove_btn">
 												<i class="fal fa-times"></i>
