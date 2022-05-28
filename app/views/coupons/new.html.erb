@@ -1,0 +1,10 @@
+
+
+        <div class="center">
+        <h1>Kupon Ekle</h1>
+        <%= form_for  @coupon do|f| %>
+            Adı <%= f.text_field :name %><br>
+            <%= f.submit 'Gönder',class: 'button kaydir' %>
+
+        <% end %>
+        </div>

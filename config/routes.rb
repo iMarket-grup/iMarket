@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'cart/index'
   root 'posts#index'
+  get '/', to: 'cart#index'
+  post '/', to: 'cart#index'
   
   devise_for :users
 
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   resources :rates
   resources :comments
   resources :occupants
+  resources :coupons
 
   
  
