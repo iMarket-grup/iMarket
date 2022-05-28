@@ -7,5 +7,12 @@ class CartController < ApplicationController
     @carts.each do |cart|
       @cart_sum = @cart_sum + cart.cost.to_i
     end
+    @coupons = Coupon.all
+
+
+    name = params[:name]
+    @name = name 
+
   end
+
 end

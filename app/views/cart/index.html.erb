@@ -481,9 +481,13 @@
 							<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 								<div class="coupon_form">
 									<div class="form_item mb-0">
-										<input type="text" class="coupon" placeholder="Kuponu kodunu giriniz">
+										<form action="/" method="POST">
+											<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+											<input type="text" class="coupon" name="name" placeholder="Kuponu kodunu giriniz" />
+											<input type="submit" class="custom_btn bg_danger text-uppercase"/>
+										</form>
+										Hello <%= @name %>!!<br/>
 									</div>
-									<button type="submit" class="custom_btn bg_danger text-uppercase">Kuponu Uygula</button>
 								</div>
 							</div>
 
@@ -500,9 +504,17 @@
 							<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
 								<h3 class="table_title text-center" data-bg-color="#ededed">Sepet Tutarı</h3>
 								<ul class="ul_li_block clearfix">
-									<li><span>Alt Toplam</span> <span><%= @cart_sum %></span></li>
-									<li><span>Toplam</span> <span><%= @cart_sum %></span></li>
-								</ul>
+                  <% @coupons.each do |coupon|%>
+
+                    <%if  @name == coupon.name %>
+                      <li><span>Alt Toplam</span> <span><%= @cart_sum - 100%></span></li>
+                      <li><span>Toplam</span> <span><%= @cart_sum - 100 %></span></li>
+                    <%else%>
+                      <li><span>Alt Toplam</span> <span><%= @cart_sum %></span></li>
+                      <li><span>Toplam</span> <span><%= @cart_sum %></span></li>
+                    <%end%>
+                  <%end%>
+                </ul>
 								<a href="shop_checkout.html" class="custom_btn bg_success">Ödemeye Geç</a>
 							</div>
 						</div>
