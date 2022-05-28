@@ -76,11 +76,6 @@
 						<div class="col-lg-6">
 							<nav class="main_menu clearfix">
 								<ul class="ul_li_center clearfix">
-									<% if current_user.present? %>
-										<li><a><%= link_to "Sepetim #{current_user.current_cart.posts.count}",  cart_index_path%></a>
-									<% else %>
-										<li> <a><%= link_to "Sepetim #{}",  cart_index_path%></a>
-									<% end %>
 									<li class="menu_item_has_child">
 										<a href="">Kategoriler</a>
 										<div class="mega_menu">
@@ -224,12 +219,17 @@
 								</li>
 								<li>
 									<button type="button" class="cart_btn bg-primary">
-									<i class="fa-solid fa-cart-shopping"></i>
+									
 									<% if current_user.present? %>
-									<%= link_to cart_index_path%>
+									<%= link_to cart_index_path do%>
 										<span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+										<i class="fa-solid fa-cart-shopping"></i>
+									<% end %>
 									<% else %>
-										<button type="button"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+										<%= link_to cart_index_path do%>
+											<i class="fa-solid fa-cart-shopping"></i>
+										<% end %>
+										
 									<% end %>
 							
 									</button>
