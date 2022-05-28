@@ -28,7 +28,7 @@
 		<!-- header_section - start
 		================================================== -->
 		<header class="header_section classic_ecommerce_header sticky_header clearfix">
-			<div class="header_top bg_black text-white clearfix">
+			<div class="header_top bg-info text-white clearfix">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
@@ -36,11 +36,11 @@
 						</div>
 						<div class="col-lg-6">
 							<ul class="primary_social_links ul_li_right clearfix">
-								<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-								<li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-								<li><a href="#!"><i class="fab fa-google-play"></i></a></li>
+								<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href=""><i class="fab fa-instagram"></i></a></li>
+								<li><a href=""><i class="fab fa-google-play"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 					<div class="row align-items-center">
 						<div class="col-lg-3">
 							<div class="brand_logo">
-								<a class="brand_link" href="#!">
+								<a class="brand_link" href="">
 									<%= image_tag "logo.png", class:"1x", style:"max-width:200px;" %>
 								</a>
 
@@ -76,13 +76,13 @@
 						<div class="col-lg-6">
 							<nav class="main_menu clearfix">
 								<ul class="ul_li_center clearfix">
-                  <% if current_user.present? %>
-                    <li> <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{current_user.current_cart.posts.count}",  cart_index_path%></button>
-                  <% else %>
-                  <li> <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
-                  <% end %>
+									<% if current_user.present? %>
+										<li><a><%= link_to "Sepetim #{current_user.current_cart.posts.count}",  cart_index_path%></a>
+									<% else %>
+										<li> <a><%= link_to "Sepetim #{}",  cart_index_path%></a>
+									<% end %>
 									<li class="menu_item_has_child">
-										<a href="#!">Kategoriler</a>
+										<a href="">Kategoriler</a>
 										<div class="mega_menu">
 											<div class="background" data-bg-color="#ffffff">
 												<div class="container">
@@ -175,19 +175,19 @@
 										</div>
 									</li>
 									<li class="menu_item_has_child">
-										<a href="#!">Kampanyalar</a>
+										<a href="">Kampanyalar</a>
 										<ul class="submenu">
 											<li class="menu_item_has_child">
-												<a href="#!">Ramazan'a Özel Fırsatlar</a>
+												<a href="">Ramazan'a Özel Fırsatlar</a>
 												<ul class="submenu">
-													<li><a href="#!">Apple Cihazlar</a></li>
-													<li><a href="#!">Mutfak Gereçleri</a></li>
+													<li><a href="">Apple Cihazlar</a></li>
+													<li><a href="">Mutfak Gereçleri</a></li>
 													<li><a href="">Ev Aletleri</a></li>
 												</ul>
 											</li>
 										</ul>
 									</li>
-									<li><a href="#!">İletişim</a></li>
+									<li><a href="">İletişim</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -196,12 +196,12 @@
 							<ul class="action_btns_group ul_li_right clearfix">
 								<li>
 									<button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
-										<i class="fal fa-search"></i>
+										<i class="fas fa-search fa-fw"></i>
 									</button>
 								</li>
 								<li>
 									<button type="button" class="user_btn" data-toggle="collapse" data-target="#use_deropdown" aria-expanded="false" aria-controls="use_deropdown">
-										<i class="fal fa-user"></i>
+										<i class="fa-regular fa-user"></i>
 									</button>
 									<div id="use_deropdown" class="collapse_dropdown collapse">
 										<div class="dropdown_content">
@@ -215,21 +215,22 @@
 												</div>
 											</div>
 											<ul class="settings_options ul_li_block clearfix">
-												<li><a href="#!"><i class="fal fa-user-circle"></i> Profil</a></li>
-												<li><a href="#!"><i class="fal fa-user-cog"></i> Ayarlar</a></li>
-												<li><a href="#!"><i class="fal fa-sign-out-alt"></i> Çıkış Yap</a></li>
+												<li><a href=""><i class="fal fa-user-circle"></i> Profil</a></li>
+												<li><a href=""><i class="fal fa-user-cog"></i> Ayarlar</a></li>
+												<li><a href=""><i class="fal fa-sign-out-alt"></i> Çıkış Yap</a></li>
 											</ul>
 										</div>
 									</div>
 								</li>
 								<li>
 									<button type="button" class="cart_btn bg-primary">
-				  <% if current_user.present? %>
-                  <%= link_to "sepet",  cart_index_path%>
-				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
-                  <% else %>
-                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
-                  <% end %>
+									<i class="fa-solid fa-cart-shopping"></i>
+									<% if current_user.present? %>
+									<%= link_to cart_index_path%>
+										<span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+									<% else %>
+										<button type="button"><%= link_to "Sepetim #{}",  cart_index_path%></button>
+									<% end %>
 							
 									</button>
 								</li>
@@ -320,8 +321,8 @@
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="#!">Sepeti Git</a></li>
-						<li><a href="#!">Ödemeye Geç</a></li>
+						<li><a href="">Sepeti Git</a></li>
+						<li><a href="">Ödemeye Geç</a></li>
 					</ul>
 				</div>
 
@@ -340,68 +341,68 @@
 							<li class="active dropdown">
 								<a href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anasayfa</a>
 								<ul class="ul_li_block dropdown-menu">
-									<li><a href="#!">Televizyon</a></li>
+									<li><a href="">Televizyon</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+								<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown ul_li_block">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Televizyon</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Televizyon</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bilgisayarlar</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bilgisayarlar</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tabletler</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tabletler</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Kitaplar</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Kitaplar</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Telefonlar</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Telefonlar</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OEM Birimleri</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OEM Birimleri</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ev Eşyaları</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ev Eşyaları</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Banyo Gereçleri</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Banyo Gereçleri</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drone</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drone</a>
 									</li>
 
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Scooter</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Scooter</a>
 									</li>
 
 								</ul>
 							</li>
 							<li class="dropdown">
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kampanyalar</a>
+								<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kampanyalar</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown">
-										<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ramazan'a Özel Fırsatlar</a>
+										<a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ramazan'a Özel Fırsatlar</a>
 										<ul class="dropdown-menu">
-											<li><a href="#!">Apple Cihazlar</a></li>
-											<li><a href="#!">Mutfak Gereçleri</a></li>
-											<li><a href="#!">Ev Aletleri</a></li>
+											<li><a href="">Apple Cihazlar</a></li>
+											<li><a href="">Mutfak Gereçleri</a></li>
+											<li><a href="">Ev Aletleri</a></li>
 										</ul>
 									</li>
 								</ul>
 							</li>
-							<li><a href="#!">İletişim</a></li>    
+							<li><a href="">İletişim</a></li>    
 						</ul>
 					</div>
 
@@ -417,9 +418,9 @@
 							</div>
 						</div>
 						<ul class="settings_options ul_li_block clearfix">
-							<li><a href="#!"><i class="fal fa-user-circle"></i> Profil</a></li>
-							<li><a href="#!"><i class="fal fa-user-cog"></i> Ayarlar</a></li>
-							<li><a href="#!"><i class="fal fa-sign-out-alt"></i> Çıkış</a></li>
+							<li><a href=""><i class="fal fa-user-circle"></i> Profil</a></li>
+							<li><a href=""><i class="fal fa-user-cog"></i> Ayarlar</a></li>
+							<li><a href=""><i class="fal fa-sign-out-alt"></i> Çıkış</a></li>
 						</ul>
 					</div>
 				</div>
@@ -511,7 +512,7 @@
 												<p>
 													Belirli Apple cihazlarda %30'a varan indirimler
 												</p>
-												<a class="custom_btn bg_white text-uppercase" href="#!">Koleksiyonu Gör</a>
+												<a class="custom_btn bg_white text-uppercase" href="">Koleksiyonu Gör</a>
 											</div>
 										</div>
 									</div>
@@ -523,7 +524,7 @@
 							<div class="ecommerce_category_fullimage">
 								<%= image_tag "offer_img_02_1.jpg"%>
 								<h3 class="item_title">
-									<a href="#!">Özel Ürün 1</a>
+									<a href="">Özel Ürün 1</a>
 								</h3>
 							</div>
 						</div>
@@ -532,7 +533,7 @@
 							<div class="ecommerce_category_fullimage">
 								<%= image_tag "offer_img_02_1.jpg"%>
 								<h3 class="item_title">
-									<a href="#!">Özel Ürün 2</a>
+									<a href="">Özel Ürün 2</a>
 								</h3>
 							</div>
 						</div>
@@ -541,7 +542,7 @@
 							<div class="ecommerce_category_fullimage">
 								<%= image_tag "offer_img_02_1.jpg"%>
 								<h3 class="item_title">
-									<a href="#!">Özel Ürün 3</a>
+									<a href="">Özel Ürün 3</a>
 								</h3>
 							</div>
 						</div>
@@ -550,7 +551,7 @@
 							<div class="ecommerce_category_fullimage">
 								<%= image_tag "offer_img_02_1.jpg"%>
 								<h3 class="item_title">
-									<a href="#!">Özel Ürün 4</a>
+									<a href="">Özel Ürün 4</a>
 								</h3>
 							</div>
 						</div>
@@ -633,7 +634,7 @@
 								<%= image_tag "ithink_img_01.png"%>
 								<div class="item_content">
 									<h3 class="item_title text-white mb_15">&nbsp;</h3>
-									<a class="text_btn text-uppercase" href="#!"><span>Tüm Tartışmaları Gör</span></a>
+									<a class="text_btn text-uppercase" href=""><span>Tüm Tartışmaları Gör</span></a>
 								</div>
 							</div>
 						</div>
@@ -643,7 +644,7 @@
 								<%= image_tag "ithink_img_02_1.png"%>
 								<div class="item_content">
 									<h3 class="item_title text-white mb_15">&nbsp;</h3>
-									<a class="text_btn text-uppercase" href="#!"><span>Özgür Medya</span></a>
+									<a class="text_btn text-uppercase" href=""><span>Özgür Medya</span></a>
 								</div>
 							</div>
 						</div>
@@ -726,19 +727,19 @@
 							</div>
 						</div>
 						<ul class="btns_group ul_li mb_30 clearfix">
-							<li><a href="#!" class="custom_btn bg_carparts_red">Sepete Ekle</a></li>
-							<li><a href="#!" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare Product"><i class="fal fa-sync"></i></a></li>
-							<li><a href="#!" data-toggle="tooltip" data-placement="top" title="" data-original-title="İstek Listesine Ekle"><i class="fal fa-heart"></i></a></li>
+							<li><a href="" class="custom_btn bg_carparts_red">Sepete Ekle</a></li>
+							<li><a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare Product"><i class="fal fa-sync"></i></a></li>
+							<li><a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="İstek Listesine Ekle"><i class="fal fa-heart"></i></a></li>
 						</ul>
 						<ul class="info_list ul_li_block clearfix">
-							<li><strong class="list_title">Kategori:</strong> <a href="#!">Medical Equipment</a></li>
+							<li><strong class="list_title">Kategori:</strong> <a href="">Medical Equipment</a></li>
 							<li class="social_icon">
 								<strong class="list_title">Paylaş:</strong>
 								<ul class="ul_li clearfix">
-									<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
+									<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href=""><i class="fab fa-twitter"></i></a></li>
+									<li><a href=""><i class="fab fa-instagram"></i></a></li>
+									<li><a href=""><i class="fab fa-pinterest-p"></i></a></li>
 								</ul>
 							</li>
 						</ul>

@@ -1,16 +1,16 @@
-    <div class="">
+<div class="">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          <a class="nav-link" data-widget="pushmenu" href="" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Anasayfa</a>
+            <%= link_to "Mağaza", root_path, class:"nav-link"%>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">İletişim</a>
+          <a href="" class="nav-link">İletişim</a>
         </li>
       </ul>
 
@@ -18,7 +18,7 @@
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <a class="nav-link" data-widget="navbar-search" href="" role="button">
             <i class="fas fa-search"></i>
           </a>
           <div class="navbar-search-block">
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <a class="nav-link" data-widget="fullscreen" href="" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
@@ -51,24 +51,22 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <img src="dist/img/favlogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <span class="brand-text font-weight-light">iThink</span>
-      </a>
+      <%= link_to root_path, class:"brand-link" do%>
+        <%= image_tag "favlogo.png", class:"brand-image img-circle elevation-3", style:'opacity: .8' %>
+        <span class="brand-text font-weight-light">iMarkt</span>
+      <%end%>
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="dist/img/logo.jpg" class="img-circle elevation-2" alt="User Image">
+          <%= image_tag "admin_logo.jpg", class:"img-circle elevation-2", alt: "Profil Fotoğrafı"%>
           </div>
           <div class="info">
-            <a href="#" class="d-block">Admin Test</a>
+            <%= link_to "Admin Test", root_path, class:"d-block"%>
           </div>
         </div>
-
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
@@ -81,36 +79,139 @@
           </div>
         </div>
 
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-             
+              <%= link_to root_path, class:"nav-link" do%>
+                <i class="far fa-circle nav-icon"></i>
+                <p>Mağazaya Git</p>
+              <%end%>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link active">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Katalog
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <%= link_to new_category_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kategori Ekle</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to new_post_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ürün Ekle</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to comments_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Yorumlar</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to occupants_path, class:"nav-link active" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kullanıcılar</p>
+                    <%end%>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Satışlar
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-group"></i>
+                <p>
+                   Müşteriler
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link">
+                <i class="nav-icon fa-solid fa-gear"></i>
+                <p>
+                  Mağaza Ayarları
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kullanıcılar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mağaza Bilgileri</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Yerelleştirme</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pazarlama Seçenekleri</p>
+                  </a>
+                </li>                
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kuponlar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item" style="border-radius: 5px; background: #6a10e0;">
+              <a style="cursor: pointer" class="nav-link">
+                <p style="padding: 8px; font-size:20px; font-weight: 600; color:#fd7e14;">
+                  iThink
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Sidebar Menu 
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
                 <%=link_to "Ürün Ekle",   new_post_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-              
             </li>
             <li class="nav-item">
-              
                   <%=link_to "Kategori Ekle",   new_category_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
             </li>
             <li class="nav-item">
-              
-                 <%=link_to "Yorumlar",   comments_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
+                  <%=link_to "Yorumlar",   new_category_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
             </li>
             <li class="nav-item">
-              
-                  <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
+                 <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
             </li> 
-s
 
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
+        /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
     </aside>
