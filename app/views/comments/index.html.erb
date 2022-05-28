@@ -5,13 +5,13 @@
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          <a class="nav-link" data-widget="pushmenu" href="" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Anasayfa</a>
+            <%= link_to "Mağaza", root_path, class:"nav-link"%>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">İletişim</a>
+          <a href="" class="nav-link">İletişim</a>
         </li>
       </ul>
 
@@ -19,7 +19,7 @@
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <a class="nav-link" data-widget="navbar-search" href="" role="button">
             <i class="fas fa-search"></i>
           </a>
           <div class="navbar-search-block">
@@ -41,7 +41,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <a class="nav-link" data-widget="fullscreen" href="" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
@@ -52,14 +52,22 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <p>Admin Paneli</p>
-      </a>
+      <%= link_to root_path, class:"brand-link" do%>
+        <%= image_tag "favlogo.png", class:"brand-image img-circle elevation-3", style:'opacity: .8' %>
+        <span class="brand-text font-weight-light">iMarkt</span>
+      <%end%>
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+          <%= image_tag "admin_logo.jpg", class:"img-circle elevation-2", alt: "Profil Fotoğrafı"%>
+          </div>
+          <div class="info">
+            <%= link_to "Admin Test", root_path, class:"d-block"%>
+          </div>
+        </div>
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
@@ -72,36 +80,139 @@
           </div>
         </div>
 
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-             
+              <%= link_to root_path, class:"nav-link" do%>
+                <i class="far fa-circle nav-icon"></i>
+                <p>Mağazaya Git</p>
+              <%end%>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link active">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Katalog
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <%= link_to new_category_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kategori Ekle</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to new_post_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ürün Ekle</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to comments_path, class:"nav-link active" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Yorumlar</p>
+                    <%end%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to occupants_path, class:"nav-link" do%>
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kullanıcılar</p>
+                    <%end%>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Satışlar
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-group"></i>
+                <p>
+                   Müşteriler
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="cursor: pointer" class="nav-link">
+                <i class="nav-icon fa-solid fa-gear"></i>
+                <p>
+                  Mağaza Ayarları
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kullanıcılar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mağaza Bilgileri</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Yerelleştirme</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pazarlama Seçenekleri</p>
+                  </a>
+                </li>                
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kuponlar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item" style="border-radius: 5px; background: #6a10e0;">
+              <a href="cursor: pointer" class="nav-link">
+                <p style="padding: 8px; font-size:20px; font-weight: 600; color:#fd7e14;">
+                  iThink
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Sidebar Menu 
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
                 <%=link_to "Ürün Ekle",   new_post_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-              
             </li>
             <li class="nav-item">
-              
                   <%=link_to "Kategori Ekle",   new_category_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
             </li>
             <li class="nav-item">
-              
                   <%=link_to "Yorumlar",   new_category_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
             </li>
             <li class="nav-item">
-              
                  <%=link_to "Kullanıcılar",   occupants_path, class: "list-group-item list-group-item-action list-group-item-light p-3"%>
-                  
             </li> 
-s
 
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
+        /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
     </aside>
@@ -113,12 +224,12 @@ s
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Kontrol Merkezi</h1>
+              <h1 class="m-0">Yorumlar</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-                <li class="breadcrumb-item active">Kontrol Merkezi</li>
+                <li class="breadcrumb-item"><a href="">Anasayfa</a></li>
+                <li class="breadcrumb-item active">Yorumlar</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -128,24 +239,80 @@ s
 
       <!-- Main content -->
       <section class="content">
+      <div class="container-fluid">
 
-    <% @comments.each do |comment|%>
+        <!-- Timelime example  -->
+        <div class="row">
+          <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline">
+              <!-- timeline time label -->
+              <div class="time-label">
+                <span class="bg-red">Mayıs 2022</span>
+              </div>
+              <!-- /.timeline-label -->
+              <!-- timeline item -->
+              <div>
+                <i class="fas fa-envelope bg-blue"></i>
+                <div class="timeline-item">
+                  <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                  <h3 class="timeline-header"><a href="">Ufuk Canatan</a> iThink'te bir gönderiye yorum yaptı
+                    <small><strong>&nbsp;(admin@gmail.com)</strong></small>
+                  </h3>
 
-        <div>
-            <tr> 
-                İsim: <td><%=comment.name%></td>
-                Email: <td><%=comment.email%></td>
-                Yorum: <td><%=comment.content%></td>
-            <tr>
+                  <div class="timeline-body">
+                    Deneme yorum bir iki ürün ekle yorum sil deneme
+                  </div>
+                  <div class="timeline-footer">
+                    <a class="btn btn-primary btn-sm">Onayla</a>
+                    <a class="btn btn-danger btn-sm">Sil</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END timeline item -->
+              <!-- timeline item -->
+              <div>
+                <i class="fas fa-user bg-green"></i>
+                <div class="timeline-item">
+                  <span class="time"><i class="fas fa-clock"></i> 5 dk önce</span>
+                  <h3 class="timeline-header no-border"><a href="">Ufuk Canatan</a> üye kaydı oluşturdu
+                    <small><strong>&nbsp;(admin@gmail.com)</strong></small>
+                  </h3>
+                </div>
+              </div>
+              <!-- END timeline item -->
+              <!-- timeline item -->
+              <% @comments.each do |comment|%>
+              <div>
+                <i class="fas fa-comments bg-yellow"></i>
+                <div class="timeline-item">
+                  <span class="time"><i class="fas fa-clock"></i> 27 dk önce</span>
+                  <h3 class="timeline-header"><a href=""><%=comment.name%></a> bir yorum yaptı
+                    <small><strong>&nbsp;(<%=comment.email%>)</strong></small>
+                  </h3>
+                  <div class="timeline-body">
+                    <%=comment.content%>
+                  </div>
+                  <div class="timeline-footer">
+                    <a class="btn btn-warning btn-sm text-black">Onayla</a>
+                    <a class="btn btn-danger btn-sm">Sil</a>
+                  </div>
+                </div>
+              </div>
+              <%end%>
+              <!-- END timeline item -->
+            </div>
+          </div>
+          <!-- /.col -->
         </div>
+      </div>
+      <!-- /.timeline -->
 
-    <%end%>
-        
-      </section>
+    </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->

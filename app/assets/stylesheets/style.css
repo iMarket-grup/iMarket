@@ -2698,6 +2698,7 @@ button {
   display: flex;
   min-height: 50px;
   align-items: center;
+  background: #121212;
 }
 .classic_ecommerce_header.stuck .header_bottom {
   background-color: #ffffff;
@@ -2721,8 +2722,8 @@ button {
   padding: 10px 0px;
 }
 .classic_ecommerce_header .main_menu > ul > li > a {
-  color: #141414;
-  font-size: 20px;
+  color: #fff;
+  font-size: 17px;
   font-weight: 500;
 }
 
