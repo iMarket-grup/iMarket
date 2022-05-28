@@ -62,17 +62,6 @@
 											<i class="fal fa-search"></i>
 										</button>
 									</li>
-									<li>
-										<button type="button" class="cart_btn">
-				  <% if current_user.present? %>
-                  <%= link_to "sepet",  cart_index_path%>
-				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
-                  <% else %>
-                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
-                  <% end %>
-							
-										</button>
-									</li>
 									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
 								</ul>
 							</div>
@@ -81,11 +70,6 @@
 						<div class="col-lg-6">
 							<nav class="main_menu clearfix">
 								<ul class="ul_li_center clearfix">
-                  <% if current_user.present? %>
-                    <li> <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{current_user.current_cart.posts.count}",  cart_index_path%></button>
-                  <% else %>
-                  <li> <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
-                  <% end %>
 									<li class="menu_item_has_child">
 										<a href="#!">Kategoriler</a>
 										<div class="mega_menu">
@@ -231,12 +215,17 @@
 									<button type="button" class="cart_btn bg-primary">
 										
 										
-				  <% if current_user.present? %>
-                  <%= link_to "sepet",  cart_index_path%>
-				  <span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
-                  <% else %>
-                  <button type="button" style="color: #6d37da", font-size= "10px"><%= link_to "Sepetim #{}",  cart_index_path%></button>
-                  <% end %>
+									<% if current_user.present? %>
+									<%= link_to cart_index_path do%>
+										<span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+										<i class="fa-solid fa-cart-shopping"></i>
+									<% end %>
+									<% else %>
+										<%= link_to cart_index_path do%>
+											<i class="fa-solid fa-cart-shopping"></i>
+										<% end %>
+										
+									<% end %>
 									</button>
 								</li>
 							</ul>
