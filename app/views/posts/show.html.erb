@@ -1,33 +1,755 @@
-<div class="post-genis ortalaa">
-  <div class="denemeee">
+<!DOCTYPE html>
+<html lang="tr">
 
-    <%if @post.image.attached?%>
-      <%=image_tag @post.image, style:"width:100%; height:380px; object-fit:cover"%>
-    <%else%>
-      foto yok
-    <%end%>
-  
-    <h1>
-    <span class="darkmode-ignore"><%= truncate(@post.title, length: 60) %> </span>
-    </h1>
-    
-  </div>
-  <p class="content">
-   Content <%= @post.content %>
-  </p>
-   Cost: <%= @post.cost %>
-  <p class="content">
-    <% if @post.categories.present? %>
-      <% @post.categories.each do |category| %>
-        <%= link_to category.name, category_path(category) %>
-      <% end %>
-    <% else %>
-      Bu yazının kategorisi bulunmamaktadır.
-    <% end %>
-  </p>
+	<head>
 
-  <br>
-  <br>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>Anasayfa | iMarket</title>
+		<link rel="shortcut icon" href="assets/images/logo/favourite_icon_01.png">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/fontawesome.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/animate.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/nice-select.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/slick.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/slick-theme.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/magnific-popup.css">
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheet/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="app/app/assets/stylesheet/style.css">
+
+	</head>
+
+
+	<body class="home_classic_ecommerce">
+    <div class="content">
+      <div class="ortala">
+		<!-- header_section - start
+		================================================== -->
+		<header class="header_section classic_ecommerce_header sticky_header clearfix">
+			<div class="header_top bg-info text-white clearfix">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<span class="offer_text">150₺ ve üzeri Yurtiçi Siparişlerde Kargo Bedava</span>
+						</div>
+						<div class="col-lg-6">
+							<ul class="primary_social_links ul_li_right clearfix">
+								<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href=""><i class="fab fa-instagram"></i></a></li>
+								<li><a href=""><i class="fab fa-google-play"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header_bottom clearfix">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-3">
+							<div class="brand_logo">
+								<a class="brand_link" href="">
+									<%= image_tag "logo.png", class:"1x", style:"max-width:200px;" %>
+								</a>
+
+								<ul class="mh_action_btns ul_li clearfix">
+									<li>
+										<button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
+											<i class="fal fa-search"></i>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="cart_btn">
+											<i class="fal fa-shopping-cart"></i>
+											<span class="btn_badge">6</span>
+										</button>
+									</li>
+									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-lg-6">
+							<nav class="main_menu clearfix">
+								<ul class="ul_li_center clearfix">
+									<li class="menu_item_has_child">
+										<a href="">Kategoriler</a>
+										<div class="mega_menu">
+											<div class="background" data-bg-color="#ffffff">
+												<div class="container">
+													<div class="row mt__30">
+														<div class="col-lg-3">
+															<div class="page_links">
+																<h3 class="title_text">Televizyon</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">LED</a></li>
+																	<li><a href="">LCD</a></li>
+																	<li><a href="">Curved</a></li>
+																	<li><a href="">4K</a></li>
+																</ul>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">Bilgisayarlar</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Notebook</a></li>
+																	<li><a href="">All in One</a></li>
+																</ul>
+															</div>
+
+														</div>
+
+														<div class="col-lg-3">
+															<div class="page_links">
+																<h3 class="title_text">Tabletler</h3>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">E-Kitaplar</h3>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">Telefonlar</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Akıllı Telefonlar</a></li>
+																	<li><a href="">Oyun Telefonları</a></li>
+																</ul>
+															</div>
+														</div>
+
+														<div class="col-lg-3">
+															<div class="page_links">
+																<h3 class="title_text">OEM Birimleri</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Ekran Kartı</a></li>
+																	<li><a href="">RAM</a></li>
+																</ul>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">Ev Eşyaları</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Beyaz Eşyalar</a></li>
+																	<li><a href="">Ev Alet Gereçleri</a></li>
+																</ul>
+															</div>
+														</div>
+
+														<div class="col-lg-3">
+															<div class="page_links">
+																<h3 class="title_text">Banyo Gereçleri</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Termosifon</a></li>
+																	<li><a href="">Elektrikli Diş Fırçaları</a></li>
+																</ul>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">Drone</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Kablolu Dronelar</a></li>
+																	<li><a href="">360 Dronelar</a></li>
+																</ul>
+															</div>
+
+															<div class="page_links">
+																<h3 class="title_text">E-Scooter</h3>
+																<ul class="ul_li_block">
+																	<li><a href="">Hoverboard</a></li>
+																	<li><a href="">E-Bys</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="menu_item_has_child">
+										<a href="">Kampanyalar</a>
+										<ul class="submenu">
+											<li class="menu_item_has_child">
+												<a href="">Ramazan'a Özel Fırsatlar</a>
+												<ul class="submenu">
+													<li><a href="">Apple Cihazlar</a></li>
+													<li><a href="">Mutfak Gereçleri</a></li>
+													<li><a href="">Ev Aletleri</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><a href="">İletişim</a></li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="col-lg-3">
+							<ul class="action_btns_group ul_li_right clearfix">
+								<li>
+									<button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
+										<i class="fas fa-search fa-fw"></i>
+									</button>
+								</li>
+								<li>
+									<button type="button" class="user_btn" data-toggle="collapse" data-target="#use_deropdown" aria-expanded="false" aria-controls="use_deropdown">
+										<i class="fa-regular fa-user"></i>
+									</button>
+									<div id="use_deropdown" class="collapse_dropdown collapse">
+										<div class="dropdown_content">
+											<div class="profile_info clearfix">
+												<div class="user_thumbnail">
+													<img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
+												</div>
+												<div class="user_content">
+													<h4 class="user_name">Ufuk Canatan</h4>
+													<span class="user_title">Müşteri</span>
+												</div>
+											</div>
+											<ul class="settings_options ul_li_block clearfix">
+												<li><a href=""><i class="fal fa-user-circle"></i> Profil</a></li>
+												<li><a href=""><i class="fal fa-user-cog"></i> Ayarlar</a></li>
+												<li><a href=""><i class="fal fa-sign-out-alt"></i> Çıkış Yap</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<button type="button" class="cart_btn bg-info">
+									
+									<% if current_user.present? %>
+									<%= link_to cart_index_path do%>
+										<span class="btn_badge"><%=current_user.current_cart.posts.count%></span>
+										<i class="fa-solid fa-cart-shopping"></i>
+									<% end %>
+									<% else %>
+										<%= link_to cart_index_path do%>
+											<i class="fa-solid fa-cart-shopping"></i>
+										<% end %>
+										
+									<% end %>
+							
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="search_body_collapse" class="search_body_collapse collapse">
+				<div class="search_body">
+					<div class="container">
+						<form action="#">
+							<div class="form_item mb-0">
+								<input type="search" name="search" placeholder="Keşfetmeye Başla">
+								<button type="submit"><i class="fal fa-search"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header_section - end
+		================================================== -->
+
+
+		<!-- main body - start
+		================================================== -->
+		<main>
+
+			<section class="details_section shop_details sec_ptb_140 clearfix">
+				<div class="container">
+					<div class="row mb_100 justify-content-lg-between">
+						<div class="col-lg-5 col-md-5">
+							<div class="shop_details_image">
+								<div class="tab-content">
+									<div id="tab_1" class="tab-pane active">
+										<%if @post.image.attached?%>
+                      <%=image_tag @post.image%>
+                    <%else%>
+                      Fotoğraf Bulunamadı
+                    <%end%>
+									</div>
+									<div id="tab_2" class="tab-pane fade">
+										<p>2. Görsel</p>
+									</div>
+									<div id="tab_3" class="tab-pane fade">
+										<p>3. Görsel</p>
+									</div>
+									<div id="tab_4" class="tab-pane fade">
+										<p>4. Görsel</p>
+									</div>
+								</div>
+
+								<ul class="nav ul_li clearfix" role="tablist">
+									<li>
+										<a class="active" data-toggle="tab" href="#tab_1">
+                    <%if @post.image.attached?%>
+                      <%=image_tag @post.image%>
+                    <%else%>
+                      Fotoğraf Bulunamadı
+                    <%end%>
+										</a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#tab_2">
+											<p>2. Görsel</p>
+										</a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#tab_3">
+											<p>3. Görsel</p>
+										</a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#tab_4">
+											<p>4. Görsel</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-lg-7 col-md-7">
+							<div class="shop_details_content ml-5">
+								<h2><%= truncate(@post.title, length: 60, class:"item-title")%></h2>
+								<span class="item_price"><%= @post.cost %> TL&nbsp;-&nbsp;<small style="font-size: 20px"><del>2500 TL</del><small></span>
+								<hr>
+								<div class="row mb_30 align-items-center justify-content-lg-between">
+									<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+										<div class="item_brand d-flex align-items-center">
+											<span class="brand_title">Marka:</span>
+											<span class="brand_image d-flex align-items-center justify-content-center" data-bg-color="#efefef" style=" border-radius: 15px">
+                        <%= image_tag "beko.png", style:"max-width: 80px;"%>
+											</span>
+										</div>
+									</div>
+
+
+									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+										<div class="rating_review_wrap d-flex align-items-center clearfix">
+											
+                      <%= form_for(@rate) do |f| %>
+                        <div  class="ui star rating" data-max-rating="5"> </div>
+                        <%= f.hidden_field :post_id, value: @post.id %><br>
+                        <%= f.hidden_field :rate,class:"rate_hidden_field" %><br>
+                      <% end %>
+											<span>4 Yorum</span>
+											<button type="button" class="add_review_btn">Yorum Ekle</button>
+										</div>
+									</div>
+								</div>
+								<p class="mb-0">
+									<%= @post.content %>
+								</p>
+								<hr>
+								<div class="item_color_list mb_30 clearfix">
+									<h4 class="list_title mb_15 text-uppercase">Renk</h4>
+									<ul class="ul_li clearfix">
+										<li>
+											<button type="button"><span><small data-bg-color="#cc7b4a"></small></span> Kahverengi</button>
+										</li>
+										<li>
+											<button type="button"><span><small data-bg-color="#b6b8ba"></small></span> Gri</button>
+										</li>
+										<li>
+											<button type="button"><span><small data-bg-color="#dd3333"></small></span> Kırmızı</button>
+										</li>
+									</ul>
+								</div>
+								<div class="item_size_list mb_30 clearfix">
+									<h4 class="list_title mb_15 text-uppercase">Boyut</h4>
+									<ul class="ul_li clearfix">
+										<li><button type="button">XL</button></li>
+										<li><button type="button">L</button></li>
+										<li><button type="button">M</button></li>
+										<li><button type="button">SM</button></li>
+										<li><a class="size_guide" href="#!"><i class="far fa-tape mr-1"></i> Rehber</a></li>
+									</ul>
+								</div>
+
+								<ul class="btns_group_1 ul_li mb_30 clearfix">
+									<li>
+										<div class="quantity_input">
+											<form action="#">
+												<span class="input_number_decrement">–</span>
+												<input class="input_number" type="text" value="1">
+												<span class="input_number_increment">+</span>
+											</form>
+										</div>
+									</li>
+									<li>
+										<a class="custom_btn bg_black text-uppercase" href="#!"><i class="fal fa-shopping-bag mr-2"></i> Sepete Ekle</a>
+									</li>
+								</ul>
+
+								<hr>
+
+								<ul class="product_info ul_li_block clearfix">
+									<li><strong>Ürün Kodu:</strong> U2012</li>
+									<li><strong>Kategoriler:</strong>
+                    <a>
+                      <% if @post.categories.present? %>
+                        <% @post.categories.each do |category| %>
+                          <%= link_to category.name, category_path(category) %>
+                      <% end %>
+                      <% else %>
+                        Bu ürünün kategorisi bulunmamaktadır.
+                      <% end %>
+                    </a></li>
+									<li><strong>Etiketler:</strong> <a href="#!">Televizyon</a> <a href="#!">Elektronik</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="details_description_tab mb_100">
+						<ul class="nav ul_li text-uppercase" role="tablist">
+							<li>
+								<a class="active" data-toggle="tab" href="#description_tab">Ürün Açıklaması</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#reviews_tab">Yorumlar</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#information_tab">Ek Bilgiler</a>
+							</li>
+						</ul>
+
+						<div class="tab-content">
+							<div id="description_tab" class="tab-pane active">
+								<div class="row mb_50">
+									<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+										<div class="image_wrap p-2">
+                      <%if @post.image.attached?%>
+                        <%=image_tag @post.image%>
+                      <%else%>
+                        Fotoğraf Bulunamadı
+                      <%end%>
+										</div>
+									</div>
+
+									<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+										<div class="content_wrap">
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Pretium turpis et arcu</h4>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Sıralanmamış Liste</h4>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											</p>
+
+											<ul class="product_info ul_li_block clearfix">
+												<li><strong>Renk:</strong> Kahverengi, Gri, Saydam, Kırmızı</li>
+												<li><strong>Boyut:</strong> L, M, S, XL, XS</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb_50">
+									<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 order-last">
+										<div class="image_wrap">
+                      <%if @post.image.attached?%>
+                        <%=image_tag @post.image%>
+                      <%else%>
+                        Fotoğraf Bulunamadı
+                      <%end%>
+										</div>
+									</div>
+
+									<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+										<div class="content_wrap">
+											<h4 class="list_title">Paragraf Metni</h4>
+											<p class="mb_15">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Pretium turpis et arcu</h4>
+											<p class="mb-0">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<span class="aware_info_icons">
+									<%= image_tag "beko.png", style:"max-width: 80px"%>
+								</span>
+							</div>
+
+							<div id="reviews_tab" class="tab-pane fade">
+								<form action="#">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="text" name="name" placeholder="Your Name">
+											</div>
+										</div>
+
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="email" name="email" placeholder="Your Email">
+											</div>
+										</div>
+
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="form_item">
+												<input type="text" name="subject" placeholder="Subject">
+											</div>
+										</div>
+									</div>
+
+									<div class="form_item">
+										<textarea name="message" placeholder="Your Message"></textarea>
+									</div>
+									<button type="submit" class="custom_btn bg_default_red text-uppercase">Submit Review</button>
+								</form>
+							</div>
+
+							<div id="information_tab" class="tab-pane fade">
+								<div class="row mb_50">
+									<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+										<div class="image_wrap">
+                      <%if @post.image.attached?%>
+                        <%=image_tag @post.image%>
+                      <%else%>
+                        Fotoğraf Bulunamadı
+                      <%end%>
+										</div>
+									</div>
+
+									<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+										<div class="content_wrap">
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Pretium turpis et arcu</h4>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Sıralanmamış Liste</h4>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											</p>
+
+											<ul class="product_info ul_li_block clearfix">
+												<li><strong>Renk:</strong> Kahverengi, Gri, Saydam, Kırmızı</li>
+												<li><strong>Boyut:</strong> L, M, S, XL, XS</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb_50">
+									<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 order-last">
+										<div class="image_wrap">
+											<img src="assets/images/details/shop/img_07.jpg" alt="image_not_found">
+										</div>
+									</div>
+
+									<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+										<div class="content_wrap">
+											<h4 class="list_title">Paragraf Metni</h4>
+											<p class="mb_15">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+											<p class="mb_30">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+
+											<h4 class="list_title">Pretium turpis et arcu</h4>
+											<p class="mb-0">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<span class="aware_info_icons">
+									<img src="assets/images/icons/aware_icons.png" alt="image_not_found">
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<hr class="mt-0 mb_100">
+
+					<div class="popular_products arrow_ycenter mt__30">
+						<div class="slideshow4_slider row" data-slick='{"dots": false}'>
+							<div class="col item">
+								<div class="ecommerce_product_grid">
+									<ul class="product_label ul_li clearfix">
+										<li class="bg_leafgreen">Yeni</li>
+									</ul>
+									<div class="tab-content">
+										<div id="ptab1_1" class="tab-pane active">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_2" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_3" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+									</div>
+									<div class="item_content">
+										<h3 class="item_title">
+											<a href="#!">Beko TV 3</a>
+										</h3>
+										<ul class="product_color ul_li nav clearfix">
+											<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab1_1"></a></li>
+											<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab1_2"></a></li>
+											<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
+										</ul>
+										<span class="item_price"><strong>2500.00 TL</strong> <del>3500.00 TL</del></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col item">
+								<div class="ecommerce_product_grid">
+									<ul class="product_label ul_li clearfix">
+										<li class="bg_leafgreen">Yeni</li>
+									</ul>
+									<div class="tab-content">
+										<div id="ptab1_1" class="tab-pane active">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_2" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_3" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+									</div>
+									<div class="item_content">
+										<h3 class="item_title">
+											<a href="#!">Beko TV 2</a>
+										</h3>
+										<ul class="product_color ul_li nav clearfix">
+											<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab1_1"></a></li>
+											<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab1_2"></a></li>
+											<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
+										</ul>
+										<span class="item_price"><strong>2500.00 TL</strong> <del>3500.00 TL</del></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col item">
+								<div class="ecommerce_product_grid">
+									<ul class="product_label ul_li clearfix">
+										<li class="bg_leafgreen">Yeni</li>
+									</ul>
+									<div class="tab-content">
+										<div id="ptab1_1" class="tab-pane active">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_2" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_3" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+									</div>
+									<div class="item_content">
+										<h3 class="item_title">
+											<a href="#!">Beko TV 4</a>
+										</h3>
+										<ul class="product_color ul_li nav clearfix">
+											<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab1_1"></a></li>
+											<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab1_2"></a></li>
+											<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
+										</ul>
+										<span class="item_price"><strong>2500.00 TL</strong> <del>3500.00 TL</del></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col item">
+								<div class="ecommerce_product_grid">
+									<ul class="product_label ul_li clearfix">
+										<li class="bg_leafgreen">Yeni</li>
+									</ul>
+									<div class="tab-content">
+										<div id="ptab1_1" class="tab-pane active">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_2" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+										<div id="ptab1_3" class="tab-pane">
+											<div class="item_image">
+                        <%= image_tag "beko.png"%>
+											</div>
+										</div>
+									</div>
+									<div class="item_content">
+										<h3 class="item_title">
+											<a href="#!">Beko TV 5</a>
+										</h3>
+										<ul class="product_color ul_li nav clearfix">
+											<li class="active"><a class="pbg_brown" data-toggle="tab" href="#ptab1_1"></a></li>
+											<li><a class="pbg_olivegreen" data-toggle="tab" href="#ptab1_2"></a></li>
+											<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
+										</ul>
+										<span class="item_price"><strong>2500.00 TL</strong> <del>3500.00 TL</del></span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="carousel_nav">
+							<button type="button" class="ss4_left_arrow"><i class="fal fa-angle-left"></i></button>
+							<button type="button" class="ss4_right_arrow"><i class="fal fa-angle-right"></i></button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- details_section - end
+			================================================== -->
+		
+	</body>
+</html>
+
 
   <p class="rate">
   <%= form_for(@rate) do |f| %>
@@ -49,9 +771,13 @@
     });
   </script>
   
+
+
+
+
   <%= @post.rates.average(:rate) %><br>
 
-    <div class="center">
+ 
     <p class="content">
     
     <%= form_for @comment do |f| %>
@@ -72,7 +798,7 @@
     <% end %>
   </p>
     
-    <div class="center">
+
  
   
   <% @comments.each do |comment| %>  
@@ -90,23 +816,4 @@
    
     
   <% end %>
-</div>
-  
-  </div>
-  </div>
 
-  <div class="social">
-  <%= link_to "http://www.facebook.com/" do %>
-      <%= image_tag 'facebook.png' %>
-  <% end %> 
-  <%= link_to "https://twitter.com/intent/tweet?url=#{@post.title} #{post_url @post.id}" do %>
-      <%= image_tag 'twitter.png' %>
-  <% end %>
-   <%= link_to "https://www.instagram.com" do %>
-      <%= image_tag 'instagram.png' %>
-  <% end %>
-  <%= link_to "https://www.linkedin.com/" do %>
-      <%= image_tag 'linkedin.png' %>
-  <% end %>
-  </div>
- 
