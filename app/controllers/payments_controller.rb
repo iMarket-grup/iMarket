@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
 
     @cardnumber = params[:cardnumber]
     @cvc = params[:cvc] # 123 olarak girileek
-    @expireyear = params[:expireyear] # 2030 olarak girilecek
+    @expireyear = params[:expireyear] #payments 2030 olarak girilecek
     @expiremonth = params[:expiremonth] # 12 olarak girilecek
 
     @options = Iyzipay::Options.new
