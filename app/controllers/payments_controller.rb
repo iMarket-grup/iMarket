@@ -1,12 +1,25 @@
 class PaymentsController < ApplicationController
   def index
     @carts = current_user.current_cart.posts
+    @coupons = Coupon.all
+    name = params[:name]
+    @name = name
     @cart_sum = 0
-   
+
     @carts.each do |cart|
       @cart_sum = @cart_sum + cart.cost.to_i
     end
 
+
+    @coupons.each do |coupon|
+
+        if  @name == coupon.name
+ 
+            @cart_sum = @cart_sum - 100
+        else
+            @cart_sum
+        end
+    end
 
     @cardnumber = params[:cardnumber]
     @cvc = params[:cvc] # 123 olarak girileek
@@ -96,7 +109,14 @@ class PaymentsController < ApplicationController
         $stderr.puts 'oops'
         raise
     end
-    @status = payment.body.split(',')[0].split('"')[3]
+    status = payment.body.split(',')[0].split('"')[3]
+
+    if status == "success"
+        flash.alert = "Ödeme Başarılı"
+    else
+        flash.alert = "Ödeme Başarısız"
+    end
+
   end
 
   def success
