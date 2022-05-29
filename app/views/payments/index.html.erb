@@ -270,7 +270,11 @@
                         <div class="col-lg-5">
                             <div class="card card-info text-dark">
                                 <div class="card-header">
+<<<<<<< HEAD
                                     <h3 class="card-title">Fatura & Teslimat Adres Bilgileri</h3>
+=======
+                                    <h3 class="card-title">Teslimat Adres Bilgileri</h3>
+>>>>>>> 7b820d45a76e26c5c8541dfed8f9384a2cf7aac8
                                 </div>
                                 <form>
                                     <div class="card-body">
@@ -345,7 +349,11 @@
                                         <div class="form-control" style="width: 260px">
                                             <div class="form-check">
                                                 <small><input type="checkbox" class="form-check-input" id="fatura">
+<<<<<<< HEAD
                                                 <label class="form-check-label" for="fatura">&nbsp;<strong>Adres bilgilerimi</strong> kaydet.</label></small>
+=======
+                                                <label class="form-check-label" for="fatura">&nbsp;<strong>Teslimat Adres Bilgilerimi</strong> kaydet.</label></small>
+>>>>>>> 7b820d45a76e26c5c8541dfed8f9384a2cf7aac8
                                             </div>
                                         </div>
 
@@ -353,7 +361,11 @@
                                 </form>
                             </div>
                         </div>
+<<<<<<< HEAD
                         
+=======
+                    
+>>>>>>> 7b820d45a76e26c5c8541dfed8f9384a2cf7aac8
                     </div>
 
                     <div class="row d-flex justify-content-center p-4">
@@ -364,23 +376,37 @@
                                     <h3 class="card-title">Kart Bilgileri</h3>
                                 </div>
                                 <form>
+								
+
+		
+
+
+
+
+						<form action="/payments" method="POST">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="mb-n2 kart-label-yeni">Kart Numarası</label>
-                                            <input type="text" class="form-control" id="" placeholder="12 Haneli Kart Numaranızı Giriniz">
+											<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+											<input type="text" class="form-control" name="cardnumber" placeholder="12 Haneli Kart Numaranızı Giriniz" />
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-6">
                                                 <label class="mb-n2 kart-label-yeni">Son Kullanma Tarihi</label>
                                                 <div class="d-flex justify-content-start">
-                                                    <input type="text" class="form-control" style="width: 80px" id="" placeholder="Ay">
-                                                    <input type="text" class="form-control ml-4" style="width: 80px" id="" placeholder="Yıl">
+
+													<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+													<input type="text" class="form-control" name="expiremonth" placeholder="Ay" />
+
+													<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+													<input type="text" class="form-control ml-4" style="width: 80px"  name="expireyear" placeholder="Yıl" />
                                                 </div>
                                             </div>
                                             <div class="form-group col-lg-6" style="">
                                                 <label class="d-flex justify-content-end mb-n1 kart-label-yeni" style="margin-right: 50px" for="">CVV</label>
                                                 <div class="d-flex justify-content-end">
-                                                    <input type="text" class="form-control" style="width: 80px" id="" placeholder="___">
+														<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+														<input type="text" class="form-control" style="width: 80px"  name="cvc" placeholder="___" />
                                                 </div>
                                             </div>
                                         </div>
@@ -391,6 +417,26 @@
                                                 <label class="form-check-label" for="exampleCheck1"><i class="fa-solid fa-lock"></i>&nbsp;<strong>3D Secure</strong> ile ödemek istiyorum.</label></small>
                                             </div>
                                         </div>
+
+                                         
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="coupon_form">
+                                                    <div class="form_item mb-0">
+                                                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+                                                            <input type="text" class="form-control" name="name" placeholder="Kupon kodunu giriniz" style="height: 32px; width: 220px;"/>
+                                                          
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <button type="submit" class="btn btn-success btn-xl mt-3 border-success">Ödeme Yap</button>
+                                            </div>
+                                            
+                                        </div>
+                                         
 
                                     </div>
                                 </form>
@@ -407,24 +453,21 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="mb-n2 kart-label-yeni">Ara Toplam</label>
-                                            <p>1129.00 TL</p>
+                                            <p><%= @cart_sum %>TL</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-n2 kart-label-yeni">Kargo Toplam</label>
                                             <p>17.00 TL</p>
                                         </div>
                                         <div class="form-group">
-                                            <label class="mb-n2 kart-label-yeni text-success">Kampanya İndirimi (ufakbeg2)</label>
+                                            <label class="mb-n2 kart-label-yeni text-success">Kampanya İndirimi (<%=@name%>)</label>
                                             <p class="text-success"><del>-100.00 TL</del></p>
                                         </div>
                                         <hr>
                                         <div class="form-group d-flex justify-content-between">
                                             <div>
                                                 <label class="mb-n2 kart-label-yeni">Toplam</label>
-                                                <p class="text-orange">1046.00 TL</p>
-                                            </div>
-                                            <div class="">
-                                                <a class="btn btn-success btn-xl mt-3 border-success">Ödeme Yap</a>
+                                                <p class="text-orange"><%= @cart_sum %>TL</p>
                                             </div>
                                         </div>
                                         
@@ -446,7 +489,11 @@
 
                         </div>
 
+<<<<<<< HEAD
                     </div>                    
+=======
+                    </div>         
+>>>>>>> 7b820d45a76e26c5c8541dfed8f9384a2cf7aac8
                 </div>
 			</section>
 

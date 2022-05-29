@@ -315,7 +315,7 @@
 									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 										<div class="coupon_form">
 											<div class="form_item mb-0">
-												<form action="/" method="POST" class="d-flex justify-content-between">
+												<form action="/payments" method="POST" class="d-flex justify-content-between">
 													<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 													<input type="text" class="coupon w-auto" name="name" placeholder="Kupon kodunu giriniz" />
 													<input type="submit" class="custom_btn bg-danger text-uppercase ml-4"/>
@@ -351,13 +351,6 @@
 										<%end%>
 									<%end%>
 								</ul>
-								<span>
-									<%= link_to payments_path do%>
-										<a class="custom_btn bg-success text-uppercase ml-4">Ödemeye Geç
-										<i class="fa-solid fa-cart-shopping"></i></a>
-									<% end %>
-								</span>
-								
 							</div>
 						</div>	
 					</div>
