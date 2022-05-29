@@ -609,7 +609,7 @@
 												<li><a class="pbg_gray" data-toggle="tab" href="#ptab1_3"></a></li>
 											</ul>
 											<span class="item_price"><strong><%= post.cost %> TL</strong> <del>345,90 TL</del></span>
-											<p><%= link_to "Sepete Ekle", add_cart_posts_path(post)%></p>
+											<p class="btn btn-info text-white btn-sm mt-2 border-info rounded"><i class="fa-solid fa-xl fa-cart-plus"></i>&nbsp;<%= link_to "Sepete Ekle", add_cart_posts_path(post), class:"text-info"%></p>
 										</div>
 									</div>
 								<% end %>
