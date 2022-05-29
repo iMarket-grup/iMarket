@@ -270,7 +270,7 @@
                         <div class="col-lg-5">
                             <div class="card card-info text-dark">
                                 <div class="card-header">
-                                    <h3 class="card-title">Fatura Adres Bilgileri</h3>
+                                    <h3 class="card-title">Fatura & Teslimat Adres Bilgileri</h3>
                                 </div>
                                 <form>
                                     <div class="card-body">
@@ -345,7 +345,7 @@
                                         <div class="form-control" style="width: 260px">
                                             <div class="form-check">
                                                 <small><input type="checkbox" class="form-check-input" id="fatura">
-                                                <label class="form-check-label" for="fatura">&nbsp;<strong>Fatura Adresim Bilgilerimi</strong> kaydet.</label></small>
+                                                <label class="form-check-label" for="fatura">&nbsp;<strong>Adres bilgilerimi</strong> kaydet.</label></small>
                                             </div>
                                         </div>
 
@@ -354,93 +354,6 @@
                             </div>
                         </div>
                         
-                        <div class="col-lg-5">
-                            <div class="card card-info text-dark">
-                                <div class="card-header">
-                                    <h3 class="card-title">Teslimat Adres Bilgileri</h3>
-                                </div>
-                                <form>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="form-group col-lg-6">
-                                                <label class="mb-n2 kart-label-yeni" for="" style="">İsim</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                            <div class="form-group col-lg-6">
-                                                <label class="mb-n2 kart-label-yeni">Soyisim</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-6 kart-label-yeni">
-                                                <label class="mb-n2">Ülke (Select-Option)</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                            <div class="form-group col-lg-6 kart-label-yeni">
-                                                <label class="mb-n2">Adres</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                        </div>
-                                        
-                                        <hr>
-
-                                        <div class="row">
-                                            <div class="form-group col-lg-4 kart-label-yeni">
-                                                <label class="mb-n2">Şehir/İl</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                            
-                                            <div class="form-group col-lg-4 kart-label-yeni">
-                                                <label class="mb-n2">İlçe</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                            
-                                            <div class="form-group col-lg-4 kart-label-yeni">
-                                                <label class="mb-n2">Posta Kodu</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="row">
-
-                                            <div class="col-lg-6"> 
-                                                <div class="form-group col-lg-12 kart-label-yeni">
-                                                    <label class="mb-n2">Telefon</label>
-                                                    <input type="tel" class="form-control" id="" placeholder="">
-                                                </div>
-                                            
-                                                <div class="form-group col-lg-12 kart-label-yeni">
-                                                    <label class="mb-n2">E-Posta Adresi</label>
-                                                    <input type="mail" class="form-control" id="" placeholder="">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">       
-                                                <div class="form-group kart-label-yeni">
-                                                    <label class="mb-n2">Not</label>
-                                                    <textarea class="form-control" rows="3" placeholder="Eklemek istediğiniz bir not bırakın ör: Kargo temassız teslim edilsin."></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
-                                        <div class="form-control" style="width: 260px">
-                                            <div class="form-check">
-                                                <small><input type="checkbox" class="form-check-input" id="fatura">
-                                                <label class="form-check-label" for="fatura">&nbsp;<strong>Teslimat Adres Bilgilerimi</strong> kaydet.</label></small>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    
                     </div>
 
                     <div class="row d-flex justify-content-center p-4">
@@ -533,24 +446,7 @@
 
                         </div>
 
-                    </div>
-                    <div class= "center">
-	<form action="/payments" method="POST">
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-		<input type="text" class="coupon" name="cardnumber" placeholder="Kuponu kodunu giriniz" />
-		
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-		<input type="text" class="coupon" name="cvc" placeholder="Kuponu kodunu giriniz" />
-
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-		<input type="text" class="coupon" name="expireyear" placeholder="Kuponu kodunu giriniz" />
-
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-		<input type="text" class="coupon" name="expiremonth" placeholder="Kuponu kodunu giriniz" />
-		<input type="submit" class="custom_btn bg_danger text-uppercase"/>
-	</form>
-</div>
-                    
+                    </div>                    
                 </div>
 			</section>
 

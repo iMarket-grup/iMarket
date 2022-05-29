@@ -1,20 +1,36 @@
 
 <body class="">
-    <div class="" style="background: #ff9f1c">
+    <div class="" style="background: #f3f3f3">
       <div class="row">
         <div class="col-3 col-md-6 col-lg-3 col-xl-3"></div>
-        <div class="col-6 col-md-12 col-lg-6 col-sm-12 col-xs-12 col-xl-6">
-          <section class="content w-100 p-4">
+        <div class="col-6 col-md-12 col-lg-6 col-sm-12 col-xs-12 col-xl-6" style="background: #efefef; border-left: 3px solid #00000022; border-right: 3px solid #00000022;">
+          <div class="w-100 px-5 mt-2" style="height: 180px; border-radius: 15px">
+            <h4 style="padding: 5px; font-weight: bolder; color: #121212">Anasayfa<small class="ml-3" style="font-size: 13px">(admin@gmail.com)</small></h4>
+            <div class="d-flex">
+              <div class="mt-4">
+                <%= image_tag "admin_logo.jpg", class:"img-circle img-bordered-sm", style:"height: 60px; width: 60px;"%>
+              </div>
+              <%= form_for @ithink do |f| %>
+              <div>
+                <%= f.text_area :content, required: true, placeholder: "Neler Oluyor?", class:"form-control ml-5 mt-4", style:"height: 60px; width: 740px; background-color: #17a2b822;"%>
+              </div>
+            </div>
+            <div class="w-100 mt-2 d-flex">
+              <%= f.text_field :name, required: true , placeholder: "Adınız", class:"form-control", style:"background-color: #17a2b822; margin-left: 90px; width: 100px;" %>
+              <%= f.text_field :surname, required: true,  placeholder: "Soyadınız", class:"form-control ml-3", style:"background-color: #17a2b822; width: 100px;" %>
+              <%= f.submit 'Yorumla',class: 'btn btn-sm btn-primary', style:"margin-left: 465px"%>
+            </div>
+            <% end %>
+          </div>
+
+          <section class="content w-100 p-4 mt-n2">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-12">
                   <div class="timeline">
-                    <div class="time-label">
-                      <span class="bg-red">10 Feb. 2014</span>
-                    </div>
                     <% @ithinks.each do |f| %>  
                       <div>
-                        <i class="fas <%=@arr[Random.rand(0...7).to_i]%>" style="background-color:<%="%06x" % (rand * 0xffffff)%>; color:white"></i>
+                        <!-- <i class="fas <%=@arr[Random.rand(0...7).to_i]%>" style="background-color:<%="%06x" % (rand * 0xffffff)%>; color:white"></i>-->
                         <div class="timeline-item">
                           <span class="time"
                             ><i class="fas fa-clock"></i> 12:05</span
@@ -27,85 +43,79 @@
                               <%= f.content %><br>
                           </div>
                           <div class="timeline-footer">
-                            <a class="btn btn-primary btn-sm">Read more</a>
-                            <a class="btn btn-danger btn-sm">Delete</a>
+                            <a class="btn btn-primary btn-sm">Beğen</a>
+                            <a class="btn btn-danger btn-sm">Şikayet Et</a>
                           </div>
                         </div>
                       </div>
                     <%end%>
                     <div>
-                      <i class="fas fa-user bg-green"></i>
-                      <div class="timeline-item">
-                        <span class="time"
-                          ><i class="fas fa-clock"></i> 5 mins ago</span
-                        >
-                        <h3 class="timeline-header no-border">
-                          <a href="#">Sarah Young</a> accepted your friend
-                          request
-                        </h3>
-                      </div>
                     </div>
                     <div>
-                      <i class="fas fa-comments bg-yellow"></i>
+                    
+                      
                       <div class="timeline-item">
                         <span class="time"
-                          ><i class="fas fa-clock"></i> 27 mins ago</span
+                          ><i class="fas fa-clock"></i> 42 dakika önce</span
                         >
                         <h3 class="timeline-header">
-                          <a href="#">Jay White</a> commented on your post
+                          <a href="#">Musa Yerleşmiş</a> bir gönderiye yorum yaptı
                         </h3>
                         <div class="timeline-body">
-                          Take me to your leader! Switzerland is small and
-                          neutral! We are more like Germany, ambitious and
-                          misunderstood!
+                          Titrerim mücrim gibi, baktıkça istikbalime.
                         </div>
                         <div class="timeline-footer">
-                          <a class="btn btn-warning btn-sm">View comment</a>
+                          <a class="btn btn-primary btn-sm">Tüm yorumları gör</a>
                         </div>
                       </div>
                     </div>
-                    <div class="time-label">
-                      <span class="bg-green">3 Jan. 2014</span>
-                    </div>
                     <div>
-                      <i class="fa fa-camera bg-purple"></i>
                       <div class="timeline-item">
                         <span class="time"
-                          ><i class="fas fa-clock"></i> 2 days ago</span
+                          ><i class="fas fa-clock"></i> 2 gün önce</span
                         >
                         <h3 class="timeline-header">
-                          <a href="#">Mina Lee</a> uploaded new photos
+                          <a href="#">Ufuk Canatan</a> yeni fotoğraflar ekledi
                         </h3>
                         <div class="timeline-body">
-                          <img
-                            src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
-                            alt="..."
-                          />
-                          <img
-                            src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
-                            alt="..."
-                          />
-                          <img
-                            src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
-                            alt="..."
-                          />
-                          <img
-                            src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
-                            alt="..."
-                          />
+                          <div class="row">
+                            <div class="col-6 p-2">
+                                <img style="max-width: 350px;"
+                                  src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
+                                  alt="..."
+                                />
+                            </div>
+                            <div class="col-6 p-2">
+                                <img style="max-width: 350px;"
+                                  src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
+                                  alt="..."
+                                />                                    
+                            </div>
+                            <div class="col-6 p-2">
+                                <img style="max-width: 350px;"
+                                  src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
+                                  alt="..."
+                                />                                    
+                            </div>
+                            <div class="col-6 p-2">
+                                <img style="max-width: 350px;"
+                                  src="https://img.internethaber.com/rcman/Cw480h270q95gc/images/gallery/37266/b.jpg"
+                                  alt="..."
+                                />                                    
+                            </div>
+                        </div>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <i class="fas fa-video bg-maroon"></i>
 
                       <div class="timeline-item">
                         <span class="time"
-                          ><i class="fas fa-clock"></i> 5 days ago</span
+                          ><i class="fas fa-clock"></i> 5 gün önce</span
                         >
 
                         <h3 class="timeline-header">
-                          <a href="#">Mr. Doe</a> shared a video
+                          <a href="#">Salim Tambay</a> bir video paylaştı
                         </h3>
 
                         <div class="timeline-body">
@@ -118,14 +128,11 @@
                           </div>
                         </div>
                         <div class="timeline-footer">
-                          <a href="#" class="btn btn-sm bg-maroon"
-                            >See comments</a
-                          >
+                          <a href="#" class="btn btn-sm bg-primary">Tüm yorumları gör</a>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <i class="fas fa-clock bg-gray"></i>
                     </div>
                   </div>
                 </div>
@@ -139,20 +146,3 @@
 </body>
 </html>
 
-    <%= form_for @ithink do |f| %>
-      <div class="ui form">
-        <div class="fields">
-
-          <div class="field"><%= f.text_field :name, required: true , placeholder: "Ad" %> </div>
-          <div class="field"><%= f.text_field :surname, required: true,  placeholder: "Soyad " %> </div>
-
-        </div>
-          <div class="büyüt">
-          
-            <div class="field"><%= f.text_area :content, required: true, placeholder: "Yorumunuz" %> </div>
-          </div>
-      </div>
-      <%= f.submit 'Yorum Yap',class: 'button center' %><br>
-
-
-    <% end %>
