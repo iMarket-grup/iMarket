@@ -1,7 +1,8 @@
 class IthinksController < ApplicationController
+  before_action :authenticate_user!
   def index
     @arr = ['fa-clock', 'fa-comments', 'fa-user', 'fa-camera', 'fa-video','fa-city','fa-slash','fa-star']
-
+    @now = Time.now
     @ithink = Ithink.new 
     @ithinks = Ithink.all
     @colour = "%06x" % (rand * 0xffffff)

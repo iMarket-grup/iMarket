@@ -5,14 +5,14 @@
         <div class="col-3 col-md-6 col-lg-3 col-xl-3"></div>
         <div class="col-6 col-md-12 col-lg-6 col-sm-12 col-xs-12 col-xl-6" style="background: #efefef; border-left: 3px solid #00000022; border-right: 3px solid #00000022;">
           <div class="w-100 px-5 mt-2" style="height: 180px; border-radius: 15px">
-            <h4 style="padding: 5px; font-weight: bolder; color: #121212">Anasayfa<small class="ml-3" style="font-size: 13px">(admin@gmail.com)</small></h4>
+            <h4 style="padding: 5px; font-weight: bolder; color: #121212">Anasayfa<small class="ml-3" style="font-size: 13px"><%=current_user.email if current_user.present?%></small></h4>
             <div class="d-flex">
               <div class="mt-4">
                 <%= image_tag "admin_logo.jpg", class:"img-circle img-bordered-sm", style:"height: 60px; width: 60px;"%>
               </div>
               <%= form_for @ithink do |f| %>
               <div>
-                <%= f.text_area :content, required: true, placeholder: "Neler Oluyor?", class:"form-control ml-5 mt-4", style:"height: 60px; width: 740px; background-color: #17a2b822;"%>
+                <%= f.text_area :content, required: true, placeholder: "Neler Oluyor?", class:"form-control mt-4", style:"height: 60px; width: 740px; background-color: #17a2b822; margin-left:30px;"%>
               </div>
             </div>
             <div class="w-100 mt-2 d-flex">
@@ -28,15 +28,24 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="timeline">
-                    <% @ithinks.each do |f| %>  
+                    <% @ithinks.reverse.each do |f| %>  
                       <div>
                         <!-- <i class="fas <%=@arr[Random.rand(0...7).to_i]%>" style="background-color:<%="%06x" % (rand * 0xffffff)%>; color:white"></i>-->
                         <div class="timeline-item">
-                          <span class="time"
-                            ><i class="fas fa-clock"></i> 12:05</span
-                          >
+                          <span class="time"><i class="fas fa-clock"></i>
+
+                              <%  if (@now.strftime("%Y").to_i-f.created_at.strftime("%Y").to_i) != 0%>
+                                    <%=(@now.strftime("%Y").to_i-f.created_at.strftime("%Y").to_i)%> yıl önce
+                              <%  elsif (@now.strftime("%m").to_i-f.created_at.strftime("%m").to_i) != 0 %>
+                                    <%=(@now.strftime("%m").to_i-f.created_at.strftime("%m").to_i)%> ay önce
+                              <%  elsif (@now.strftime("%d").to_i-f.created_at.strftime("%d").to_i) == 0 && (@now.strftime("%d").to_i-f.created_at.strftime("%d").to_i) == 1%>
+                                    <%=(@now.strftime("%d").to_i-f.created_at.strftime("%d").to_i)%> gün önce
+                              <%else%>
+                                   <%=(f.created_at.strftime("%H").to_i+3) %>. <%=f.created_at.strftime("%M")%>
+                              <%  end %>
+                            </span>
                           <h3 class="timeline-header">
-                            <a href="#"><%= "#{f.name.capitalize } #{f.surname.capitalize }"%></a> <%= current_user.email %>
+                            <a href="#"><%= "#{f.name.capitalize } #{f.surname.capitalize }"%></a> yorum yaptı
                           </h3>
 
                           <div class="timeline-body">

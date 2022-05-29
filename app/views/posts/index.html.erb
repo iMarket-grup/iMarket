@@ -196,7 +196,16 @@
 								</li>
 								<li>
 									<button type="button" class="user_btn" data-toggle="collapse" data-target="#use_deropdown" aria-expanded="false" aria-controls="use_deropdown">
-										<i class="fa-regular fa-user"></i>
+										
+											<% if user_signed_in?%>
+												<%= link_to destroy_user_session_path, method: :delete  do%>
+													<i class="fa-regular fa-user text-dark"></i>
+												<%end%>
+											<%else%>
+												<%= link_to new_user_session_path, method: :delete  do%>
+													<i class="fa-regular fa-user text-dark"></i>
+												<%end%>
+											<%end%>
 									</button>
 									<div id="use_deropdown" class="collapse_dropdown collapse">
 										<div class="dropdown_content">
@@ -631,21 +640,27 @@
 					<div class="row no-gutters justify-content-lg-between">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="ce_offer_fullimage offer_fullimage text-white text-center">
-								<%= image_tag "ithink_img_01.png"%>
-								<div class="item_content">
-									<h3 class="item_title text-white mb_15">&nbsp;</h3>
-									<a class="text_btn text-uppercase" href=""><span>Tüm Tartışmaları Gör</span></a>
-								</div>
+									<%= link_to ithinks_path, class:"brand-link" do%>
+										<%= image_tag "ithink_img_01.png"%>
+										<div class="item_content">
+											<h3 class="item_title text-white mb_15">&nbsp;</h3>
+											<a class="text_btn text-uppercase" href=""><span>Tüm Tartışmaları Gör</span></a>
+										</div>
+									<%end%>
 							</div>
 						</div>
 
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="ce_offer_fullimage offer_fullimage text-white text-center">
-								<%= image_tag "ithink_img_02_1.png"%>
+									<%= link_to ithinks_path, class:"brand-link" do%>
+										<%= image_tag "ithink_img_02_1.png"%>
+									
+								
 								<div class="item_content">
 									<h3 class="item_title text-white mb_15">&nbsp;</h3>
 									<a class="text_btn text-uppercase" href=""><span>Özgür Medya</span></a>
 								</div>
+								<%end%>
 							</div>
 						</div>
 					</div>
@@ -758,13 +773,10 @@
         <%= image_tag 'home.png' %>
     </div>
     <div style="margin: auto;">
-      <a href="#" style=""><%= current_user.email if user_signed_in? %><br>
             <% if user_signed_in?%>
-                <%= link_to 'posts', posts_path %><br>
-                <%= link_to 'kategoriler', categories_path%><br>
                 <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
             <%else%>
                 <%= link_to 'Giriş Yap',new_user_session_path, style:"background-color: #6d37da; padding: 20px; border-radius: 25px; color: white; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: bold;" %>
             <%end%>
-        </a>
+    	</a>
     </div>
