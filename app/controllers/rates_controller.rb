@@ -1,4 +1,5 @@
 class RatesController < ApplicationController
+  before_action :authenticate_user!
     def create
         @rate = Rate.new(rate_params)
         if @rate.save
