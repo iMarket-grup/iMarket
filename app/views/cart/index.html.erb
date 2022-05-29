@@ -256,9 +256,9 @@
 		<main>
 
       		<section class="cart_section sec_ptb_140 clearfix">
-				<div class="">
 					<div class="row">
-						<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+
+						<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8 col-8">
 							<div class="cart_table mb_50">
 								<table class="table">
 									<thead class="text-uppercase">
@@ -290,18 +290,16 @@
 												</div>
 											</td>
 											<td>
-												<span class="price_text"><%= cart.cost%> TL</span>
+												<span class="price_text mt-5" style="font-size: 15px"><%= cart.cost%> TL</span>
 											</td>
 											<td>
-												<div class="quantity_input">
+												<div class="quantity_input mt-4">
 													<form action="#">
-														<span class="input_number_decrement">–</span>
 														<input class="input_number" type="text" value="1">
-														<span class="input_number_increment">+</span>
 													</form>
 												</div>
 											</td>
-											<td><span class="total_price"><%= @cart_sum %> TL</span></td>
+											<td><span class="total_price mt-5"><strong><%= @cart_sum %> TL</strong></span></td>
 										</tr>
 										<% end %>
 
@@ -309,52 +307,20 @@
 									</tbody>
 								</table>
 							</div>
-
-							<div class="coupon_wrap mb_50 p-4 rounded" data-bg-color="#f7f7f7">
-								<div class="row justify-content-lg-between">
-									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<div class="coupon_form">
-											<div class="form_item mb-0">
-												<form action="/payments" method="POST" class="d-flex justify-content-between">
-													<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-													<input type="text" class="coupon w-auto" name="name" placeholder="Kupon kodunu giriniz" />
-													<input type="submit" class="custom_btn bg-danger text-uppercase ml-4"/>
-												</form>
-												<small><strong><%= @name %></strong> Kodu başarıyla uygulandı.</small>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-										<div class="cart_update_btn">
-											<button type="button" class="custom_btn bg-secondary text-uppercase">Sepeti Güncelle</button>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
-					</div>
 
-					<div class="row justify-content-lg-end">
-						<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
 							<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
 								<h3 class="table_title text-center" data-bg-color="#ededed">Sepet Tutarı</h3>
 								<ul class="ul_li_block clearfix">
-									<% @coupons.each do |coupon|%>
-
-										<%if  @name == coupon.name %>
-										<li><span>Alt Toplam</span> <span><%= @cart_sum - 100%></span></li>
-										<li><span>Toplam</span> <span><%= @cart_sum - 100 %></span></li>
-										<%else%>
-										<li><span>Alt Toplam</span> <span><%= @cart_sum %></span></li>
-										<li><span>Toplam</span> <span><%= @cart_sum %></span></li>
-										<%end%>
-									<%end%>
+									<li><span>Alt Toplam</span> <span><%= @cart_sum %></span></li>
+									<li><span>Toplam</span> <span><%= @cart_sum %></span></li>
 								</ul>
+								<button type="submit" class="btn btn-success btn-xl mt-3 border-success" style="margin-left: 350px">Ödeme Yap</button>
 							</div>
-						</div>	
+						</div>
 					</div>
-				</div>
 			</section>
 
 		</main>
