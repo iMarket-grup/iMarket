@@ -2690,6 +2690,10 @@ button {
   font-size: 15px;
   font-weight: 600;
 }
+.kart-label-yeni{
+  font-weight: 600; 
+  font-size: 15px
+}
 .classic_ecommerce_header .primary_social_links a {
   color: #ffffff;
   font-size: 15px;

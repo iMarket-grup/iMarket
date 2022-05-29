@@ -84,7 +84,6 @@ class PaymentsController < ApplicationController
           $stderr.puts 'oops'
           raise
         end
-        asdasd
   end
 
   def success
