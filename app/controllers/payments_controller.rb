@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
       @options = Iyzipay::Options.new
       @options.api_key = 'sandbox-hmJRzKieaL2qHp1HR2jgBzXqt54dxkhC'
       @options.secret_key = 'sandbox-dgKexx2oXW6ERWqM8fbuFkbaBDzFD1T0'
-      @options.base_url = 'https://sandbox-merchant.iyzipay.com'
+      @options.base_url = 'https://sandbox-api.iyzipay.com'
         payment_card = {
             cardHolderName: 'John Doe',
             cardNumber: '5528790000000008',
@@ -84,7 +84,7 @@ class PaymentsController < ApplicationController
           $stderr.puts 'oops'
           raise
         end
-        sadasdas
+        asdasd
   end
 
   def success
