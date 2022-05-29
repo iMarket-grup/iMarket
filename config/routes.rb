@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'posts#index'
   get '/', to: 'cart#index'
   post '/', to: 'cart#index'
+  get '/payments', to: 'payments#index'
+  post '/payments', to: 'payments#index'
+
   
   devise_for :users
 
