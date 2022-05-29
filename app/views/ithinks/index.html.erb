@@ -12,29 +12,27 @@
                     <div class="time-label">
                       <span class="bg-red">10 Feb. 2014</span>
                     </div>
-                    <div>
-                      <i class="fas fa-envelope bg-blue"></i>
-                      <div class="timeline-item">
-                        <span class="time"
-                          ><i class="fas fa-clock"></i> 12:05</span
-                        >
-                        <h3 class="timeline-header">
-                          <a href="#">Support Team</a> sent you an email
-                        </h3>
+                    <% @ithinks.each do |f| %>  
+                      <div>
+                        <i class="fas <%=@arr[Random.rand(0...7).to_i]%>" style="background-color:<%="%06x" % (rand * 0xffffff)%>; color:white"></i>
+                        <div class="timeline-item">
+                          <span class="time"
+                            ><i class="fas fa-clock"></i> 12:05</span
+                          >
+                          <h3 class="timeline-header">
+                            <a href="#"><%= "#{f.name.capitalize } #{f.surname.capitalize }"%></a> <%= current_user.email %>
+                          </h3>
 
-                        <div class="timeline-body">
-                          Etsy doostang zoodles disqus groupon greplin oooj voxy
-                          zoodles, weebly ning heekya handango imeem plugg
-                          dopplr jibjab, movity jajah plickers sifteo edmodo
-                          ifttt zimbra. Babblely odeo kaboodle quora plaxo
-                          ideeli hulu weebly balihoo...
-                        </div>
-                        <div class="timeline-footer">
-                          <a class="btn btn-primary btn-sm">Read more</a>
-                          <a class="btn btn-danger btn-sm">Delete</a>
+                          <div class="timeline-body">
+                              <%= f.content %><br>
+                          </div>
+                          <div class="timeline-footer">
+                            <a class="btn btn-primary btn-sm">Read more</a>
+                            <a class="btn btn-danger btn-sm">Delete</a>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <%end%>
                     <div>
                       <i class="fas fa-user bg-green"></i>
                       <div class="timeline-item">
@@ -140,3 +138,21 @@
     </div>
 </body>
 </html>
+
+    <%= form_for @ithink do |f| %>
+      <div class="ui form">
+        <div class="fields">
+
+          <div class="field"><%= f.text_field :name, required: true , placeholder: "Ad" %> </div>
+          <div class="field"><%= f.text_field :surname, required: true,  placeholder: "Soyad " %> </div>
+
+        </div>
+          <div class="büyüt">
+          
+            <div class="field"><%= f.text_area :content, required: true, placeholder: "Yorumunuz" %> </div>
+          </div>
+      </div>
+      <%= f.submit 'Yorum Yap',class: 'button center' %><br>
+
+
+    <% end %>
