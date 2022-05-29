@@ -534,7 +534,22 @@
                         </div>
 
                     </div>
-                    
+                    <div class= "center">
+	<form action="/payments" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+		<input type="text" class="coupon" name="cardnumber" placeholder="Kuponu kodunu giriniz" />
+		
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+		<input type="text" class="coupon" name="cvc" placeholder="Kuponu kodunu giriniz" />
+
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+		<input type="text" class="coupon" name="expireyear" placeholder="Kuponu kodunu giriniz" />
+
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+		<input type="text" class="coupon" name="expiremonth" placeholder="Kuponu kodunu giriniz" />
+		<input type="submit" class="custom_btn bg_danger text-uppercase"/>
+	</form>
+</div>
                     
                 </div>
 			</section>
