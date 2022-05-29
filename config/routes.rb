@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'posts#index'
   get '/', to: 'cart#index'
   post '/', to: 'cart#index'
+  get '/search' => 'pages#search', :as => 'search_page'
   
   devise_for :users
-
   devise_scope :user do  
      get '/users/sign_out' => 'devise/sessions#destroy'     
   end
@@ -23,9 +23,4 @@ Rails.application.routes.draw do
   resources :occupants
   resources :coupons
   resources :ithinks
-
-
-  
- 
-  get '/search' => 'pages#search', :as => 'search_page'
 end
