@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :occupants
   resources :coupons
+  resources :ithinks
+
 
   
  
