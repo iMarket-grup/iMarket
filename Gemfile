@@ -58,4 +58,5 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'ckeditor'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'iyzipay', github: 'vngrs/iyzipay-ruby'
 

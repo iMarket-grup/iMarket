@@ -1,0 +1,2 @@
+class Ithink < ApplicationRecord
+end
