@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'posts#index'
   get '/', to: 'cart#index'
   post '/', to: 'cart#index'
-  get '/search' => 'pages#search', :as => 'search_page'
+  get '/payments', to: 'payments#index'
+  post '/payments', to: 'payments#index'
+
   
   devise_for :users
   devise_scope :user do  
