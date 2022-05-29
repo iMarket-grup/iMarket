@@ -17,7 +17,6 @@ class PaymentsController < ApplicationController
     @options.api_key = 'sandbox-hmJRzKieaL2qHp1HR2jgBzXqt54dxkhC'
     @options.secret_key = 'sandbox-dgKexx2oXW6ERWqM8fbuFkbaBDzFD1T0'
     @options.base_url = 'https://sandbox-api.iyzipay.com'
-    byebug
     payment_card = {
         cardHolderName: 'John Doe',
         cardNumber: @cardnumber,
