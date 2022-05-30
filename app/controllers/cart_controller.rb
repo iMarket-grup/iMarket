@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_action :authenticate_user!
   def index
    @categories=Category.all
    @carts = current_user.current_cart.posts
