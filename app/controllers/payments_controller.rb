@@ -112,9 +112,12 @@ class PaymentsController < ApplicationController
     status = payment.body.split(',')[0].split('"')[3]
 
     if status == "success"
-        flash.alert = "Ödeme Başarılı"
+       @carts.each do |each|
+        deneme = each.stock-1 
+         Post.find(each.id).update({:stock => deneme})
+       end
     else
-        flash.alert = "Ödeme Başarısız"
+        
     end
 
   end

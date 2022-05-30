@@ -10,6 +10,9 @@ class IthinksController < ApplicationController
     ithink  = Ithink.create!(ithink_params)
     redirect_to ithinks_path
   end
+  def show
+    @ithink = Ithink.find(params[:id])
+  end
 
   def ithink_params
     params.require(:ithink).permit(:name, :surname, :content)
